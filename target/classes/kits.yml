@@ -1,0 +1,52 @@
+####################
+#                  #
+# Kits config file #
+#                  #
+####################
+
+knight:
+  name: '&6Knight'
+  lore:
+    - '&bThe classic starter kit!'
+  icon: IRON_SWORD
+  price: 0
+  perm: 'hypepvp.kit.knight'
+tosser:
+  name: '&bTosser'
+  lore:
+    - '&bGet off my lawn!!'
+  icon: STICK
+  price: 275
+  perm: 'hypepvp.kit.tosser'
+archer:
+  name: '&cArcher'
+  lore:
+    - '&cEnough pratice! Get to it!'
+  icon: ARROW
+  price: 0
+  perm: 'hypepvp.kit.archer'
+maniac:
+  name: '&4Maniac'
+  lore:
+    - '&4*unintelligible muttering*'
+  icon: IRON_AXE
+  price: 0
+  perm: 'hypepvp.kit.maniac'
+jug:
+  name: '&2Juggernaut'
+  lore:
+    - '&2Juggernaut'
+  icon: DIAMOND_HELMET
+  price: 0
+  perm: 'hypepvp.kit.jug'
+assassin:
+  name: 'Assassin'
+  lore:
+    - 'You’ll never know what hit you. Watch out for his feet...'
+  icon: STRING
+  price: 0
+  perm: 'hypepvp.kit.jug'
+  # Note: This CANNOT be deleted for assassin to work...
+  cloak:
+    mat: STRING
+    name: '&6Invisibility Cloak'

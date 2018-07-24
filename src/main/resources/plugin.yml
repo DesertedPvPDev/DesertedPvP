@@ -1,0 +1,13 @@
+name: HypePvP
+main: codes.matthewp.hypepvp.HypePvP
+version: 0.0.1
+
+commands:
+  setspawn:
+    description: Set the spawn
+  spawn:
+    description: Go to spawn
+  addks:
+    description: Add to a players kill streak
+  resetks:
+    description: Reset a players kill streak

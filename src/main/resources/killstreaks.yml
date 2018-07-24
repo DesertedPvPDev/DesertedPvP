@@ -1,0 +1,32 @@
+############################
+#                          #
+# Kill streaks config file #
+#                          #
+############################
+
+killStreakItem:
+  name: '&cKill Streaks'
+  lore:
+    - '&cUse me to select your kill streak reward!'
+  mat: 'ANVIL'
+  slot: 9
+
+killStreakGUI:
+  name: '&bSelect your reward!'
+  slots: 9
+
+killStreaks:
+  attack_dog:
+    icon:
+      name: '&cAttack dogs'
+      mat: 'BONE'
+      lore: '&cLaunch a swarm of dogs to attack your enemies'
+    dogCount: 4
+    dogName: '&c%PLAYER%s Hound'
+    cost: 5
+  supply_crate:
+    icon:
+      name: '&2Supply drop'
+      mat: 'CHEST'
+      lore: '&2Low on supplies? Watch your head!'
+    cost: 10

@@ -1,0 +1,16 @@
+###############
+#             #
+# Main config #
+#             #
+###############
+
+kitSelectorItem:
+  name: '&bKit Selector'
+  lore:
+    - '&bUse me to select your kit!'
+  mat: 'COMPASS'
+  slot: 1
+
+kitSelectorGUI:
+  name: '&bSelect your kit!'
+  slots: 27
