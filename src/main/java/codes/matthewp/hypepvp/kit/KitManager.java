@@ -39,6 +39,7 @@ public class KitManager {
         addKit(new ArcherKit());
         addKit(new ManiacKit());
         addKit(new JuggernautKit());
+        addKit(new SniperKit());
     }
 
     public static void loadKit(String key, ConfigurationSection section) {
