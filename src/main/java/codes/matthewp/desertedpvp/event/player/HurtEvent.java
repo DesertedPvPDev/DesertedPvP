@@ -21,14 +21,12 @@ public class HurtEvent implements Listener {
     @EventHandler
     public void onHit(EntityDamageByEntityEvent e) {
         if (e.getEntity() instanceof Player) {
-            System.out.println("Player was hit");
             if (e.getCause() == EntityDamageEvent.DamageCause.PROJECTILE) {
-                System.out.println("Hit by projectile");
                 if (e.getDamager() instanceof Arrow) {
-                    System.out.println("It was an arrow");
                     Player hit = (Player) e.getEntity();
                     Arrow arrow = (Arrow) e.getDamager();
                     Player damager = (Player) arrow.getShooter();
+                    // STOPS HERE
                     if (pvp.getUserManager().getUser(damager).getCurrentKit().intelID().equals("sniper")) {
                         System.out.println("Person who hit is a sniper");
                         double dist = hit.getLocation().distance(damager.getLocation());
