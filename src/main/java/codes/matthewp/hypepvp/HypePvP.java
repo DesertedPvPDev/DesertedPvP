@@ -16,6 +16,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 /**
  * Main entry point
+ * Hello World!
  */
 public class HypePvP extends JavaPlugin {
 
@@ -42,7 +43,7 @@ public class HypePvP extends JavaPlugin {
     }
 
     private void regCommands() {
-        getCommand("spawn").setExecutor(new SpawnCmd());
+        getCommand("spawn").setExecutor(new SpawnCmd());d
         getCommand("setspawn").setExecutor(new SetSpawnCmd(this));
         getCommand("addks").setExecutor(new AddKSCmd(this));
         getCommand("resetks").setExecutor(new ResetKSCmd(this));
