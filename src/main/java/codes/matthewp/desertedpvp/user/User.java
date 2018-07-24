@@ -40,6 +40,10 @@ public class User {
         this.currentKS++;
     }
 
+    public void addKS(int amount) {
+        this.currentKS = currentKS + amount;
+    }
+
     public void restPlayer() {
         resetKS();
         Player p = Bukkit.getPlayer(playerUUID);

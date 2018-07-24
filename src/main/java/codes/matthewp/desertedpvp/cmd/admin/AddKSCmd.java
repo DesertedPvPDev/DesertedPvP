@@ -2,7 +2,6 @@ package codes.matthewp.desertedpvp.cmd.admin;
 
 import codes.matthewp.desertedpvp.DesertedPvP;
 import codes.matthewp.desertedpvp.data.Messages;
-import codes.matthewp.desertedpvp.user.User;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -25,8 +24,18 @@ public class AddKSCmd implements CommandExecutor {
                     Player p = Bukkit.getPlayer(args[0]);
 
                     if (p != null) {
-                        User user = pvp.getUserManager().getUser(p);
-                        user.addKS();
+                        addKS(p, 1);
+
+                        commandSender.sendMessage(Messages.getMessage("addedKS"));
+                        return true;
+                    } else {
+                        commandSender.sendMessage(Messages.getMessage("playerNotOnline"));
+                        return false;
+                    }
+                } else if (args.length == 2) {
+                    Player p = Bukkit.getPlayer(args[0]);
+                    if (p != null) {
+                        addKS(p, Integer.valueOf(args[1]));
 
                         commandSender.sendMessage(Messages.getMessage("addedKS"));
                         return true;
@@ -44,5 +53,9 @@ public class AddKSCmd implements CommandExecutor {
             }
         }
         return false;
+    }
+
+    private void addKS(Player p, int amount) {
+        pvp.getUserManager().getUser(p).addKS(amount);
     }
 }

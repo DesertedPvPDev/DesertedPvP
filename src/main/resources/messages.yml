@@ -25,7 +25,7 @@ youHaveRecievedKit: '&bYou have received kit: %KIT%'
 notEnoughKS: '&cYou do not have a high enough kill streak. You need %NEEDED% more kills. Without dieing of course!'
 resetKSUsage: '&cInvalid command. Correct usage: /resetks <player>'
 resetUserKS: '&bYou have reset this players kill streak'
-addKSUsage: '&cInvalid command. Correct usage: /addks <player>'
+addKSUsage: '&cInvalid command. Correct usage: /addks <player> (amount)'
 addedKS: '&bYou have added 1 to this players kill streak'
 
 # Sniper kill
