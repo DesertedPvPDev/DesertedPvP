@@ -14,3 +14,5 @@ kitSelectorItem:
 kitSelectorGUI:
   name: '&bSelect your kit!'
   slots: 27
+
+# Create drop items
