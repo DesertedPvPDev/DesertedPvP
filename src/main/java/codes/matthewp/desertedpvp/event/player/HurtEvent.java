@@ -9,7 +9,6 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
-import org.bukkit.event.entity.EntityDamageEvent;
 
 public class HurtEvent implements Listener {
 
@@ -18,6 +17,7 @@ public class HurtEvent implements Listener {
     public HurtEvent(DesertedPvP pvp) {
         this.pvp = pvp;
     }
+
     @EventHandler
     public void onArrowHit(EntityDamageByEntityEvent event) {
         if (!(event.getEntity() instanceof Player))
@@ -42,7 +42,7 @@ public class HurtEvent implements Listener {
 
         double distance = hit.getLocation().distanceSquared(shooter.getLocation());
 
-        if (distance < (50^2))
+        if (distance < (50 ^ 2))
             return;
 
         hit.damage(9001, shooter);
