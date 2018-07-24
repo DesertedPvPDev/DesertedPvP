@@ -7,6 +7,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
+import org.bukkit.event.entity.EntityDamageEvent;
 
 public class HurtEvent implements Listener {
 
@@ -21,15 +22,19 @@ public class HurtEvent implements Listener {
         if (e.getEntity() instanceof Player && e.getDamager() instanceof Player) {
             Player hit = (Player) e.getEntity();
             Player damager = (Player) e.getDamager();
-            if (pvp.getUserManager().getUser(damager).getCurrentKit().intelID().equals("sniper")) {
-                double dist = hit.getLocation().distance(damager.getLocation());
-                if (dist > 50) {
-                    // TODO FIX
-                    hit.damage(30D);
-                    String msg = Messages.getMessage("sniperKill");
-                    msg = msg.replaceAll("%SNIPER%", damager.getName());
-                    msg = msg.replaceAll("%KILLED%", hit.getName());
-                    Bukkit.broadcastMessage(msg);
+            if (e.getCause() == EntityDamageEvent.DamageCause.PROJECTILE) {
+                if (pvp.getUserManager().getUser(damager).getCurrentKit().intelID().equals("sniper")) {
+                    double dist = hit.getLocation().distance(damager.getLocation());
+                    if (dist > 50) {
+                        hit.damage(30D);
+
+                        pvp.getUserManager().getUser(damager).addKS();
+
+                        String msg = Messages.getMessage("sniperKill");
+                        msg = msg.replaceAll("%SNIPER%", damager.getName());
+                        msg = msg.replaceAll("%KILLED%", hit.getName());
+                        Bukkit.broadcastMessage(msg);
+                    }
                 }
             }
         }
