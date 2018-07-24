@@ -24,7 +24,7 @@ public class SupplyCrate extends IKillStreak {
     @Override
     public void execute(Player p) {
         Location loc = new Location(p.getWorld(), p.getLocation().getX(), p.getLocation().getY() + 64, p.getLocation().getZ());
-        FallingBlock fb = p.getWorld().spawnFallingBlock(loc, Material.CHEST, (byte) 0);
+        FallingBlock fb = p.getWorld().spawnFallingBlock(loc, Material.BEACON, (byte) 0);
         fb.setMetadata("isSupplyCrate", new FixedMetadataValue(DesertedPvP.getInstace(), p.getUniqueId()));
     }
 }

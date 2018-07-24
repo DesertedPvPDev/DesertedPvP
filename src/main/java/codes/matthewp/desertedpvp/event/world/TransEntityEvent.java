@@ -20,7 +20,7 @@ public class TransEntityEvent implements Listener {
     public void onTrans(EntityChangeBlockEvent e) {
         if (e.getEntity() instanceof FallingBlock) {
             FallingBlock fb = (FallingBlock) e.getEntity();
-            if (fb.getMaterial() == Material.CHEST) {
+            if (fb.getMaterial() == Material.BEACON) {
                 // This is the identifier for the create so we know
                 // if it is ours or somehow a chest is falling
                 if (fb.hasMetadata("isSupplyCrate")) {
