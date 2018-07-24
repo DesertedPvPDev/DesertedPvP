@@ -27,3 +27,6 @@ resetKSUsage: '&cInvalid command. Correct usage: /resetks <player>'
 resetUserKS: '&bYou have reset this players kill streak'
 addKSUsage: '&cInvalid command. Correct usage: /addks <player>'
 addedKS: '&bYou have added 1 to this players kill streak'
+
+# Sniper kill
+sniperKill: '&6%SNIPER% has &cSNIPED &6%KILLED%!'

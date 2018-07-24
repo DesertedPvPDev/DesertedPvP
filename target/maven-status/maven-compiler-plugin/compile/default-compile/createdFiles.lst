@@ -25,6 +25,7 @@ codes\matthewp\hypepvp\kit\kits\Hoarfrost.class
 codes\matthewp\hypepvp\killstreak\impl\IronGolem.class
 codes\matthewp\hypepvp\kit\kits\JuggernautKit.class
 codes\matthewp\hypepvp\kit\kits\TosserKit.class
+codes\matthewp\hypepvp\item\LeatherArmorFactory.class
 codes\matthewp\hypepvp\data\TaskManager.class
 codes\matthewp\hypepvp\kit\kits\ManiacKit.class
 codes\matthewp\hypepvp\killstreak\KillStreakManager.class
@@ -41,6 +42,7 @@ codes\matthewp\hypepvp\kit\IKit.class
 codes\matthewp\hypepvp\event\player\LeaveEvent.class
 codes\matthewp\hypepvp\kit\kits\FireSpiritKit.class
 codes\matthewp\hypepvp\killstreak\impl\Nuke.class
+codes\matthewp\hypepvp\event\player\HurtEvent.class
 codes\matthewp\hypepvp\data\Messages.class
 codes\matthewp\hypepvp\cmd\spawn\SetSpawnCmd.class
 codes\matthewp\hypepvp\event\player\RespawnEvent.class

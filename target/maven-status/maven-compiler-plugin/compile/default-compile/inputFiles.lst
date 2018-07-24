@@ -13,6 +13,7 @@ C:\Users\Matthew\Desktop\Lexium\DesertedPvP\src\main\java\codes\matthewp\hypepvp
 C:\Users\Matthew\Desktop\Lexium\DesertedPvP\src\main\java\codes\matthewp\hypepvp\cmd\admin\ResetKSCmd.java
 C:\Users\Matthew\Desktop\Lexium\DesertedPvP\src\main\java\codes\matthewp\hypepvp\kit\KitManager.java
 C:\Users\Matthew\Desktop\Lexium\DesertedPvP\src\main\java\codes\matthewp\hypepvp\killstreak\KillStreaks.java
+C:\Users\Matthew\Desktop\Lexium\DesertedPvP\src\main\java\codes\matthewp\hypepvp\event\player\HurtEvent.java
 C:\Users\Matthew\Desktop\Lexium\DesertedPvP\src\main\java\codes\matthewp\hypepvp\killstreak\impl\SupplyCrate.java
 C:\Users\Matthew\Desktop\Lexium\DesertedPvP\src\main\java\codes\matthewp\hypepvp\kit\kits\BattleBaccaKit.java
 C:\Users\Matthew\Desktop\Lexium\DesertedPvP\src\main\java\codes\matthewp\hypepvp\event\interact\InteractEvent.java
@@ -34,6 +35,7 @@ C:\Users\Matthew\Desktop\Lexium\DesertedPvP\src\main\java\codes\matthewp\hypepvp
 C:\Users\Matthew\Desktop\Lexium\DesertedPvP\src\main\java\codes\matthewp\hypepvp\kit\KitSelector.java
 C:\Users\Matthew\Desktop\Lexium\DesertedPvP\src\main\java\codes\matthewp\hypepvp\user\User.java
 C:\Users\Matthew\Desktop\Lexium\DesertedPvP\src\main\java\codes\matthewp\hypepvp\event\player\HungerEvent.java
+C:\Users\Matthew\Desktop\Lexium\DesertedPvP\src\main\java\codes\matthewp\hypepvp\item\LeatherArmorFactory.java
 C:\Users\Matthew\Desktop\Lexium\DesertedPvP\src\main\java\codes\matthewp\hypepvp\kit\kits\JuggernautKit.java
 C:\Users\Matthew\Desktop\Lexium\DesertedPvP\src\main\java\codes\matthewp\hypepvp\kit\kits\PorcupineKit.java
 C:\Users\Matthew\Desktop\Lexium\DesertedPvP\src\main\java\codes\matthewp\hypepvp\event\player\JoinEvent.java

@@ -10,42 +10,42 @@ knight:
     - '&bThe classic starter kit!'
   icon: IRON_SWORD
   price: 0
-  perm: 'hypepvp.kit.knight'
+  perm: 'desertedpvp.kit.knight'
 tosser:
   name: '&bTosser'
   lore:
     - '&bGet off my lawn!!'
   icon: STICK
   price: 275
-  perm: 'hypepvp.kit.tosser'
+  perm: 'desertedpvp.kit.tosser'
 archer:
   name: '&cArcher'
   lore:
     - '&cEnough pratice! Get to it!'
   icon: ARROW
   price: 0
-  perm: 'hypepvp.kit.archer'
+  perm: 'desertedpvp.kit.archer'
 maniac:
   name: '&4Maniac'
   lore:
     - '&4*unintelligible muttering*'
   icon: IRON_AXE
   price: 0
-  perm: 'hypepvp.kit.maniac'
+  perm: 'desertedpvp.kit.maniac'
 jug:
   name: '&2Juggernaut'
   lore:
     - '&2Juggernaut'
   icon: DIAMOND_HELMET
   price: 0
-  perm: 'hypepvp.kit.jug'
+  perm: 'desertedpvp.kit.jug'
 assassin:
   name: 'Assassin'
   lore:
     - 'You’ll never know what hit you. Watch out for his feet...'
   icon: STRING
   price: 0
-  perm: 'hypepvp.kit.jug'
+  perm: 'desertedpvp.kit.jug'
   # Note: This CANNOT be deleted for assassin to work...
   cloak:
     mat: STRING
@@ -56,4 +56,4 @@ sniper:
     - 'From the bushes, comes a deadly shot.'
   icon: BOW
   price: 0
-  perm: 'hypepvp.kit.sniper'
+  perm: 'desertedpvp.kit.sniper'
