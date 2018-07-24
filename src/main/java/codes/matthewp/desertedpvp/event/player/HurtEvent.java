@@ -2,6 +2,7 @@ package codes.matthewp.desertedpvp.event.player;
 
 import codes.matthewp.desertedpvp.DesertedPvP;
 import codes.matthewp.desertedpvp.data.Messages;
+import codes.matthewp.desertedpvp.user.User;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Arrow;
 import org.bukkit.entity.Player;
@@ -17,33 +18,43 @@ public class HurtEvent implements Listener {
     public HurtEvent(DesertedPvP pvp) {
         this.pvp = pvp;
     }
-
     @EventHandler
-    public void onHit(EntityDamageByEntityEvent e) {
-        if (e.getEntity() instanceof Player) {
-            if (e.getCause() == EntityDamageEvent.DamageCause.PROJECTILE) {
-                if (e.getDamager() instanceof Arrow) {
-                    Player hit = (Player) e.getEntity();
-                    Arrow arrow = (Arrow) e.getDamager();
-                    Player damager = (Player) arrow.getShooter();
-                    // STOPS HERE
-                    if (pvp.getUserManager().getUser(damager).getCurrentKit().intelID().equals("sniper")) {
-                        System.out.println("Person who hit is a sniper");
-                        double dist = hit.getLocation().distance(damager.getLocation());
-                        System.out.println(dist);
-                        if (dist >= 50) {
-                            hit.damage(30D);
+    public void onArrowHit(EntityDamageByEntityEvent event) {
+        if (!(event.getEntity() instanceof Player))
+            return;
 
-                            pvp.getUserManager().getUser(damager).addKS();
+        Player hit = (Player) event.getEntity();
 
-                            String msg = Messages.getMessage("sniperKill");
-                            msg = msg.replaceAll("%SNIPER%", damager.getName());
-                            msg = msg.replaceAll("%KILLED%", hit.getName());
-                            Bukkit.broadcastMessage(msg);
-                        }
-                    }
-                }
-            }
-        }
+        if (!(event.getDamager() instanceof Arrow))
+            return;
+
+        Arrow arrow = (Arrow) event.getDamager();
+
+        if (!(arrow.getShooter() instanceof Player))
+            return;
+
+        Player shooter = (Player) arrow.getShooter();
+
+        User user = pvp.getUserManager().getUser(shooter);
+
+        if (!user.getCurrentKit().intelID().equals("sniper"))
+            return;
+
+        double distance = hit.getLocation().distanceSquared(shooter.getLocation());
+
+        if (distance < (50^2))
+            return;
+
+        hit.damage(9001, shooter);
+
+        user.addKS();
+
+        String msg = Messages.getMessage("sniperKill")
+                .replace("%SNIPER%", shooter.getDisplayName())
+                .replace("%KILLED%", hit.getDisplayName());
+
+        Bukkit.broadcastMessage(msg);
     }
+
+
 }

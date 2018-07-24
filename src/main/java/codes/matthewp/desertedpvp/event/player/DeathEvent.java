@@ -16,6 +16,7 @@ public class DeathEvent implements Listener {
 
     @EventHandler
     public void onDeath(PlayerDeathEvent e) {
+
         e.getDrops().clear();
         e.setDroppedExp(0);
         // TODO

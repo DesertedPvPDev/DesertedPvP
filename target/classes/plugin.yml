@@ -1,5 +1,5 @@
-name: HypePvP
-main: codes.matthewp.hypepvp.HypePvP
+name: DesertedPvP
+main: codes.matthewp.desertedpvp.DesertedPvP
 version: 0.0.1
 
 commands:
