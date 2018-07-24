@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" name="HypePvP:jar">
-    <output-path>$PROJECT_DIR$/out/artifacts/HypePvP_jar</output-path>
-    <root id="archive" name="HypePvP.jar">
-      <element id="module-output" name="HypePvP" />
-    </root>
-  </artifact>
-</component>
