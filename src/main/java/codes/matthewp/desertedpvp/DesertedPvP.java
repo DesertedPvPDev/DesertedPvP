@@ -11,6 +11,9 @@ import codes.matthewp.desertedpvp.event.world.DropEvent;
 import codes.matthewp.desertedpvp.event.world.TransEntityEvent;
 import codes.matthewp.desertedpvp.file.FileUtil;
 import codes.matthewp.desertedpvp.user.UserManager;
+import org.bukkit.Bukkit;
+import org.bukkit.event.Listener;
+import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 /**
@@ -28,7 +31,17 @@ public class DesertedPvP extends JavaPlugin {
         fileUtil = new FileUtil(this);
         user = new UserManager();
         regCommands();
-        regListeners();
+        regListeners(
+                new JoinEvent(this),
+                new LeaveEvent(this),
+                new InteractEvent(),
+                new HungerEvent(),
+                new RespawnEvent(this),
+                new DeathEvent(this),
+                new HurtEvent(this),
+                new InventoryClickEvent(this),
+                new DropEvent(this),
+                new TransEntityEvent());
         instace = this;
     }
 
@@ -48,17 +61,12 @@ public class DesertedPvP extends JavaPlugin {
         getCommand("resetks").setExecutor(new ResetKSCmd(this));
     }
 
-    private void regListeners() {
-        getServer().getPluginManager().registerEvents(new JoinEvent(this), this);
-        getServer().getPluginManager().registerEvents(new LeaveEvent(this), this);
-        getServer().getPluginManager().registerEvents(new InteractEvent(), this);
-        getServer().getPluginManager().registerEvents(new HungerEvent(), this);
-        getServer().getPluginManager().registerEvents(new RespawnEvent(this), this);
-        getServer().getPluginManager().registerEvents(new DeathEvent(this), this);
-        getServer().getPluginManager().registerEvents(new HurtEvent(this), this);
-        getServer().getPluginManager().registerEvents(new InventoryClickEvent(this), this);
-        getServer().getPluginManager().registerEvents(new DropEvent(this), this);
-        getServer().getPluginManager().registerEvents(new TransEntityEvent(), this);
+    private void regListeners(Listener... listeners) {
+        PluginManager plMan = Bukkit.getPluginManager();
+
+        for (Listener listener : listeners) {
+            plMan.registerEvents(listener, this);
+        }
     }
 
     public static DesertedPvP getInstace() {
