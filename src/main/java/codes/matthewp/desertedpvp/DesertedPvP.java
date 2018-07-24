@@ -24,7 +24,7 @@ public class DesertedPvP extends JavaPlugin {
 
     private FileUtil fileUtil;
     private UserManager user;
-    private static DesertedPvP instace;
+    private static DesertedPvP instance;
 
     @Override
     public void onEnable() {
@@ -42,12 +42,12 @@ public class DesertedPvP extends JavaPlugin {
                 new InventoryClickEvent(this),
                 new DropEvent(this),
                 new TransEntityEvent());
-        instace = this;
+        instance = this;
     }
 
     @Override
     public void onDisable() {
-
+        instance = null;
     }
 
     public FileUtil getFileUtil() {
@@ -70,7 +70,7 @@ public class DesertedPvP extends JavaPlugin {
     }
 
     public static DesertedPvP getInstace() {
-        return instace;
+        return instance;
     }
 
     public UserManager getUserManager() {
