@@ -50,3 +50,10 @@ assassin:
   cloak:
     mat: STRING
     name: '&6Invisibility Cloak'
+sniper:
+  name: 'Sniper'
+  lore:
+    - 'From the bushes, comes a deadly shot.'
+  icon: BOW
+  price: 0
+  perm: 'hypepvp.kit.sniper'

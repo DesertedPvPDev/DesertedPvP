@@ -9,7 +9,6 @@ import codes.matthewp.hypepvp.kit.IKit;
 import codes.matthewp.hypepvp.kit.KitManager;
 import codes.matthewp.hypepvp.kit.KitSelector;
 import codes.matthewp.hypepvp.user.User;
-import codes.matthewp.hypepvp.user.UserManager;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.event.EventHandler;
@@ -29,6 +28,8 @@ public class InventoryClickEvent implements Listener {
             event.setCancelled(true);
             IKit kit = KitManager.getKitFromMat(event.getCurrentItem().getType());
             kit.giveKit(Bukkit.getPlayer(event.getWhoClicked().getUniqueId()));
+            User user = pvp.getUserManager().getUser(Bukkit.getPlayer(event.getWhoClicked().getUniqueId()));
+            user.setKit(kit);
             Bukkit.getPlayer(event.getWhoClicked().getUniqueId()).closeInventory();
         } else if(strip(event.getInventory().getName()).equals(KillStreaks.getGuiName())) {
             event.setCancelled(true);

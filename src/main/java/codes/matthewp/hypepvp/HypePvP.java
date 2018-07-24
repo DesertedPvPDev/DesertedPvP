@@ -55,6 +55,7 @@ public class HypePvP extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new HungerEvent(), this);
         getServer().getPluginManager().registerEvents(new RespawnEvent(this), this);
         getServer().getPluginManager().registerEvents(new DeathEvent(this), this);
+        getServer().getPluginManager().registerEvents(new HurtEvent(this), this);
         getServer().getPluginManager().registerEvents(new InventoryClickEvent(this), this);
         getServer().getPluginManager().registerEvents(new DropEvent(this), this);
         getServer().getPluginManager().registerEvents(new TransEntityEvent(), this);
