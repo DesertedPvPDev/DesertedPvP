@@ -3,6 +3,11 @@
 # DesertedPvP #
 ###############
 
+# Stupid macs
+.DS_STORE
+
+# Lovely windows
+Thumbs.db
 
 #########
 Intellij#

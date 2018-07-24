@@ -1,6 +1,7 @@
 package codes.matthewp.hypepvp.event.world;
 
 import codes.matthewp.hypepvp.HypePvP;
+import codes.matthewp.hypepvp.loot.SupplyLoot;
 import org.bukkit.Material;
 import org.bukkit.block.Chest;
 import org.bukkit.entity.FallingBlock;
@@ -8,7 +9,6 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityChangeBlockEvent;
 import org.bukkit.inventory.Inventory;
-import org.bukkit.inventory.ItemStack;
 import org.bukkit.metadata.FixedMetadataValue;
 import org.bukkit.metadata.MetadataValue;
 
@@ -30,7 +30,7 @@ public class TransEntityEvent implements Listener {
                     e.getBlock().setMetadata("isSupplyCrate", new FixedMetadataValue(HypePvP.getInstace(), blockMeta.get(0).asString()));
                     Chest chest = (Chest) e.getBlock().getState();
                     Inventory inv = chest.getBlockInventory();
-                    inv.addItem(new ItemStack(Material.WOOD));
+                    SupplyLoot.generateLoot(inv);
                 }
             }
         }

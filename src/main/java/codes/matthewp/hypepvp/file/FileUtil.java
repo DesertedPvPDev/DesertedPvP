@@ -7,6 +7,7 @@ import codes.matthewp.hypepvp.killstreak.KillStreakManager;
 import codes.matthewp.hypepvp.killstreak.KillStreaks;
 import codes.matthewp.hypepvp.kit.KitManager;
 import codes.matthewp.hypepvp.kit.KitSelector;
+import codes.matthewp.hypepvp.loot.SupplyLoot;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 
@@ -95,6 +96,8 @@ public class FileUtil {
         for(String key : messages.getKeys(false)) {
             Messages.addMesssage(key, messages.getString(key));
         }
+
+        SupplyLoot.load(config.getStringList("crateDropItems"));
 
         KitSelector.loadKitSelector(config.getConfigurationSection("kitSelectorItem"));
         KitSelector.loadGUI(config.getConfigurationSection("kitSelectorGUI"));

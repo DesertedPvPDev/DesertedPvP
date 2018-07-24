@@ -14,6 +14,7 @@ codes\matthewp\hypepvp\killstreak\IKillStreak.class
 codes\matthewp\hypepvp\kit\kits\KnightKit.class
 codes\matthewp\hypepvp\event\world\TransEntityEvent.class
 codes\matthewp\hypepvp\killstreak\impl\DoppleGanger.class
+codes\matthewp\hypepvp\loot\SupplyLoot.class
 codes\matthewp\hypepvp\user\User.class
 codes\matthewp\hypepvp\event\interact\InteractEvent.class
 codes\matthewp\hypepvp\cmd\spawn\SpawnCmd.class
