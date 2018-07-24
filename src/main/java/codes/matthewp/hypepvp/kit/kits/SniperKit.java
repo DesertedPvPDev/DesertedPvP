@@ -20,28 +20,24 @@ public class SniperKit extends IKit {
     @Override
     public void giveKit(Player p) {
 
-      //p.getInventory().clear();
-        //p.getInventory().setHelmet(new ItemStack(Material.LEATHER_HELMET));
-        //p.getInventory().setChestplate(new ItemStack(Material.LEATHER_CHESTPLATE));
-        //p.getInventory().setLeggings(new ItemStack(Material.LEATHER_LEGGINGS));
-        //ItemStack boots = new ItemStack(Material.DIAMOND_BOOTS);
-        //boots.addEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 1);
-        //p.getInventory().setBoots(boots);
+        p.getInventory().clear();
+        p.getInventory().setHelmet(new ItemStack(Material.IRON_HELMET));
+        p.getInventory().setChestplate(new ItemStack(Material.LEATHER_CHESTPLATE));
+        p.getInventory().setLeggings(new ItemStack(Material.CHAINMAIL_LEGGINGS));
+        ItemStack boots = new ItemStack(Material.LEATHER_BOOTS);
+        boots.addEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 1);
+        p.getInventory().setBoots(boots);
 
-        //ItemStack bow = new ItemStack(Material.BOW);
-        //bow.addEnchantment(Enchantment.ARROW_DAMAGE, 1);
-        //bow.addEnchantment(Enchantment.ARROW_INFINITE, 1);
-        //p.getInventory().addItem(bow);
+        ItemStack bow = new ItemStack(Material.BOW);
+        bow.addEnchantment(Enchantment.ARROW_DAMAGE, 3);
+        bow.addEnchantment(Enchantment.ARROW_INFINITE, 1);
+        p.getInventory().addItem(bow);
 
-        //ItemStack sword = new ItemStack(Material.STONE_SWORD);
-        //sword.addEnchantment(Enchantment.DAMAGE_ALL, 1);
-        //p.getInventory().addItem(sword);
 
-        //p.getInventory().addItem(new ItemStack(Material.ARROW));
+        p.getInventory().addItem(new ItemStack(Material.ARROW));
 
-        //p.sendMessage(Messages.getMessage("youHaveRecievedKit").replaceAll("%KIT%", stripColor(getName())));
-       // KillStreaks.giveKillStreaksItem(p);
-
+        p.sendMessage(Messages.getMessage("youHaveRecievedKit").replaceAll("%KIT%", stripColor(getName())));
+        KillStreaks.giveKillStreaksItem(p);
     }
 
     public String stripColor(String str) {
