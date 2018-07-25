@@ -1,5 +1,6 @@
 package codes.matthewp.desertedpvp.user;
 
+import codes.matthewp.desertedpvp.killstreak.KillStreaks;
 import codes.matthewp.desertedpvp.kit.IKit;
 import codes.matthewp.desertedpvp.kit.KitSelector;
 import org.bukkit.Bukkit;
@@ -25,7 +26,7 @@ public class User {
     }
 
     public void setKit(IKit kit) {
-        this.currentKit = currentKit;
+        this.currentKit = kit;
     }
 
     public int getCurrentKS() {
@@ -44,6 +45,10 @@ public class User {
         this.currentKS = currentKS + amount;
     }
 
+    public void subtractKS(int amount) {
+        this.currentKS = currentKS - amount;
+    }
+
     public void restPlayer() {
         resetKS();
         Player p = Bukkit.getPlayer(playerUUID);
@@ -53,6 +58,7 @@ public class User {
         KitSelector.giveKitSelector(p);
         p.getInventory().clear();
         p.getInventory().setArmorContents(null);
+        KillStreaks.giveKillStreaksItem(p);
     }
 
 }

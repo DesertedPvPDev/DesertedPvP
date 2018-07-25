@@ -30,3 +30,11 @@ killStreaks:
       mat: 'CHEST'
       lore: '&2Low on supplies? Watch your head!'
     cost: 10
+  nuke:
+    icon:
+      name: '&4Nuke'
+      mat: 'TNT'
+      lore: '&4Nuke incoming!'
+    cost: 25
+    sound: 'LEVEL_UP'
+    message: '&2Called in nuke!'
