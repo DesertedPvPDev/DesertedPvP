@@ -21,7 +21,9 @@ public class DeathEvent implements Listener {
         e.setDroppedExp(0);
         // TODO
         e.setDeathMessage("");
-        Player killer = e.getEntity().getKiller();
-        pvp.getUserManager().getUser(killer).addKS();
+        if (e.getEntity().getKiller() != null) {
+            Player killer = e.getEntity().getKiller();
+            pvp.getUserManager().getUser(killer).addKS();
+        }
     }
 }
