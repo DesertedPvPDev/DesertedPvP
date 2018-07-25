@@ -1,8 +1,6 @@
 package codes.matthewp.desertedpvp.killstreak;
 
-import codes.matthewp.desertedpvp.killstreak.impl.AttackDogs;
-import codes.matthewp.desertedpvp.killstreak.impl.Nuke;
-import codes.matthewp.desertedpvp.killstreak.impl.SupplyCrate;
+import codes.matthewp.desertedpvp.killstreak.impl.*;
 import org.bukkit.Material;
 import org.bukkit.configuration.ConfigurationSection;
 
@@ -20,6 +18,8 @@ public class KillStreakManager {
         streaks.add(new AttackDogs());
         streaks.add(new SupplyCrate());
         streaks.add(new Nuke());
+        streaks.add(new IronGolem());
+        streaks.add(new DoppleGanger());
     }
 
     public static List<IKillStreak> getKillStreaks() {

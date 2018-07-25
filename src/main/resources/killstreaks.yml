@@ -38,3 +38,15 @@ killStreaks:
     cost: 25
     sound: 'LEVEL_UP'
     message: '&2Called in nuke!'
+  dopple_ganger:
+    icon:
+      name: '&6Doppleganger'
+      mat: 'TORCH'
+      lore: '&6We all have one somewhere...'
+    cost: 10
+  iron_boi:
+    icon:
+      name: '&2Iron Golem'
+      mat: 'IRON_INGOT'
+      lore: '&2Calling in the big guns!'
+    cost: 15
