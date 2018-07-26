@@ -10,7 +10,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.entity.Wolf;
 import org.bukkit.inventory.ItemStack;
 
-public class BeastMastertKit extends IKit {
+public class BeastMasterKit extends IKit {
 
     private String dogName;
 

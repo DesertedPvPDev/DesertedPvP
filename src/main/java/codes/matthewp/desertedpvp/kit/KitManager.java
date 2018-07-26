@@ -42,7 +42,7 @@ public class KitManager {
         addKit(new SniperKit());
         addKit(new BattleBaccaKit());
         addKit(new RichKit());
-        addKit(new BeastMastertKit());
+        addKit(new BeastMasterKit());
     }
 
     public static void loadKit(String key, ConfigurationSection section) {
