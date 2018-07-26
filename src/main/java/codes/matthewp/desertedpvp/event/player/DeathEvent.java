@@ -1,6 +1,9 @@
 package codes.matthewp.desertedpvp.event.player;
 
 import codes.matthewp.desertedpvp.DesertedPvP;
+import codes.matthewp.desertedpvp.data.SpawnData;
+import org.bukkit.Bukkit;
+import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -19,11 +22,20 @@ public class DeathEvent implements Listener {
 
         e.getDrops().clear();
         e.setDroppedExp(0);
-        // TODO
+
+        pvp.getUserManager().getUser(e.getEntity()).restPlayer();
+
         e.setDeathMessage("");
+
+        e.getEntity().teleport(new Location(Bukkit.getWorld("world"),
+                SpawnData.getX(), SpawnData.getY(), SpawnData.getZ(), SpawnData.getYaw(), SpawnData.getPitch()));
+
         if (e.getEntity().getKiller() != null) {
-            Player killer = e.getEntity().getKiller();
-            pvp.getUserManager().getUser(killer).addKS();
+            if (e.getEntity().getKiller() instanceof Player) {
+                Player killer = e.getEntity().getKiller();
+                pvp.getUserManager().getUser(killer).addKS();
+            }
         }
     }
+
 }
