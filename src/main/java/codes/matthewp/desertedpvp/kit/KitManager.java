@@ -40,6 +40,7 @@ public class KitManager {
         addKit(new ManiacKit());
         addKit(new JuggernautKit());
         addKit(new SniperKit());
+        addKit(new BattleBaccaKit());
     }
 
     public static void loadKit(String key, ConfigurationSection section) {

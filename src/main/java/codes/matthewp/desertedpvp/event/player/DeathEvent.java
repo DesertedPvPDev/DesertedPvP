@@ -34,6 +34,7 @@ public class DeathEvent implements Listener {
             if (e.getEntity().getKiller() instanceof Player) {
                 Player killer = e.getEntity().getKiller();
                 pvp.getUserManager().getUser(killer).addKS();
+                pvp.getUserManager().getUser(killer).getCurrentKit().gotKill(killer, e.getEntity());
             }
         }
     }

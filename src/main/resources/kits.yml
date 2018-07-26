@@ -40,7 +40,7 @@ jug:
   price: 0
   perm: 'desertedpvp.kit.jug'
 assassin:
-  name: 'Assassin'
+  name: '&cAssassin'
   lore:
     - 'You’ll never know what hit you. Watch out for his feet...'
   icon: STRING
@@ -51,9 +51,16 @@ assassin:
     mat: STRING
     name: '&6Invisibility Cloak'
 sniper:
-  name: 'Sniper'
+  name: '&2Sniper'
   lore:
-    - 'From the bushes, comes a deadly shot.'
+    - '&2From the bushes, comes a deadly shot.'
   icon: BOW
   price: 0
   perm: 'desertedpvp.kit.sniper'
+battle_bacca:
+  name: '&4Battle Bacca'
+  lore:
+    - '&4WAR!!!!!!'
+  icon: DIAMOND_AXE
+  price: 850
+  perm: 'desertedpvp.kit.battlebacca'
