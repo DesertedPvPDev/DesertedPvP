@@ -10,13 +10,15 @@ import java.util.UUID;
 
 public class EntityDoppleGanger extends EntityPigZombie {
 
+    private String name;
+
     public EntityDoppleGanger(org.bukkit.World world, UUID ownerUUID) {
         super(((CraftWorld) world).getHandle());
         List goalB = (List)getPrivateField("b", PathfinderGoalSelector.class, goalSelector); goalB.clear();
         List goalC = (List)getPrivateField("c", PathfinderGoalSelector.class, goalSelector); goalC.clear();
         List targetB = (List)getPrivateField("b", PathfinderGoalSelector.class, targetSelector); targetB.clear();
         List targetC = (List)getPrivateField("c", PathfinderGoalSelector.class, targetSelector); targetC.clear();
-
+        this.name = name;
         this.fireProof = true;
 
         this.goalSelector.a(0, new PathfinderGoalFloat(this));

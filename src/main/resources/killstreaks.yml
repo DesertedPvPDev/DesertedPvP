@@ -44,6 +44,7 @@ killStreaks:
       mat: 'TORCH'
       lore: '&6We all have one somewhere...'
     cost: 10
+    entityName: "&c%PLAYER%'s DoppleGanger"
   iron_boi:
     icon:
       name: '&2Iron Golem'

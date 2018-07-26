@@ -4,6 +4,7 @@ import codes.matthewp.desertedpvp.cmd.admin.AddKSCmd;
 import codes.matthewp.desertedpvp.cmd.admin.ResetKSCmd;
 import codes.matthewp.desertedpvp.cmd.spawn.SetSpawnCmd;
 import codes.matthewp.desertedpvp.cmd.spawn.SpawnCmd;
+import codes.matthewp.desertedpvp.event.entity.EntityDeath;
 import codes.matthewp.desertedpvp.event.interact.InteractEvent;
 import codes.matthewp.desertedpvp.event.interact.InventoryClickEvent;
 import codes.matthewp.desertedpvp.event.player.*;
@@ -41,7 +42,8 @@ public class DesertedPvP extends JavaPlugin {
                 new HurtEvent(this),
                 new InventoryClickEvent(this),
                 new DropEvent(this),
-                new TransEntityEvent());
+                new TransEntityEvent(),
+                new EntityDeath());
         instance = this;
     }
 
