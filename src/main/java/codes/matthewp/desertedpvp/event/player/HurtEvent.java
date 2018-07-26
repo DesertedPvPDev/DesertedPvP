@@ -40,9 +40,10 @@ public class HurtEvent implements Listener {
         if (!user.getCurrentKit().intelID().equals("sniper"))
             return;
 
-        double distance = hit.getLocation().distanceSquared(shooter.getLocation());
+        double distance = hit.getLocation().distance(shooter.getLocation());
 
-        if (distance < (50 ^ 2))
+        System.out.println("DIST: " + distance);
+        if (distance < 50)
             return;
 
         hit.damage(9001, shooter);
