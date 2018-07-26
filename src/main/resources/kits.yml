@@ -64,3 +64,10 @@ battle_bacca:
   icon: DIAMOND_AXE
   price: 850
   perm: 'desertedpvp.kit.battlebacca'
+rich:
+  name: '&6Rich'
+  lore:
+    - '&6Got that money though'
+  icon: DIAMOND
+  price: 0
+  perm: 'desertedpvp.kit.rich'

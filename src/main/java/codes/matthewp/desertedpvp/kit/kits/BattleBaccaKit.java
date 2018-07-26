@@ -15,6 +15,7 @@ public class BattleBaccaKit extends IKit {
 
     @Override
     public void giveKit(Player p) {
+        p.getInventory().clear();
 
         p.getInventory().setHelmet(new ItemStack(Material.IRON_HELMET));
         p.getInventory().setChestplate(new ItemStack(Material.IRON_CHESTPLATE));
