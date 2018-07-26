@@ -23,7 +23,7 @@ public class InteractEvent implements Listener {
             if (e.getAction() == Action.RIGHT_CLICK_AIR || e.getAction() == Action.RIGHT_CLICK_BLOCK) {
                 KillStreaks.openGUI(e.getPlayer());
             }
-        } else if(e.getAction() != Action.RIGHT_CLICK_BLOCK || e.getClickedBlock().getType() != Material.CHEST) {
+        } else if(e.getAction() == Action.RIGHT_CLICK_BLOCK || e.getClickedBlock().getType() == Material.CHEST) {
             if(e.getClickedBlock().hasMetadata("isSupplyCrate")) {
                 String ownerUUID = e.getClickedBlock().getMetadata("isSupplyCrate").get(0).asString();
                 if(!e.getPlayer().getUniqueId().toString().equals(ownerUUID)) {
