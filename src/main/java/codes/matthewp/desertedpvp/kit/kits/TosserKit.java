@@ -29,7 +29,7 @@ public class TosserKit extends IKit {
         p.getInventory().addItem(sword);
 
         ItemStack stick = new ItemStack(Material.STICK);
-        stick.addUnsafeEnchantment(Enchantment.KNOCKBACK, 5);
+        stick.addUnsafeEnchantment(Enchantment.KNOCKBACK, 3);
         p.getInventory().addItem(stick);
 
         KillStreaks.giveKillStreaksItem(p);
