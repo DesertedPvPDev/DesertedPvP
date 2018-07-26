@@ -19,7 +19,5 @@ public class LeaveEvent implements Listener {
     public void onLeave(PlayerQuitEvent e) {
         e.setQuitMessage("");
         Bukkit.broadcastMessage(Messages.getMessage("bye").replaceAll("%PLAYER%", e.getPlayer().getName()));
-
-        pvp.getUserManager().removeUser(e.getPlayer().getUniqueId());
     }
 }

@@ -31,6 +31,7 @@ public class DesertedPvP extends JavaPlugin {
     public void onEnable() {
         fileUtil = new FileUtil(this);
         user = new UserManager();
+        user.scanForUsers();
         regCommands();
         regListeners(
                 new JoinEvent(this),
