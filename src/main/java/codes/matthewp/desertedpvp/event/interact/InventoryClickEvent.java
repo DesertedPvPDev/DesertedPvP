@@ -36,7 +36,6 @@ public class InventoryClickEvent implements Listener {
             IKillStreak streak = KillStreakManager.getKSFromMat(event.getCurrentItem().getType());
 
             User user = pvp.getUserManager().getUser(event.getWhoClicked().getUniqueId());
-            System.out.println("DEBUG: " + user.getCurrentKS());
             if (user.getCurrentKS() >= streak.getCost()) {
                 user.subtractKS(streak.getCost());
                 streak.execute(Bukkit.getPlayer(event.getWhoClicked().getName()));

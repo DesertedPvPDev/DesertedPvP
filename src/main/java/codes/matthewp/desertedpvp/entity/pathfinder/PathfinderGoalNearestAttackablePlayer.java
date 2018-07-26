@@ -2,7 +2,6 @@ package codes.matthewp.desertedpvp.entity.pathfinder;
 
 import com.google.common.base.Predicate;
 import net.minecraft.server.v1_8_R3.*;
-import org.bukkit.entity.HumanEntity;
 
 import javax.annotation.Nullable;
 import java.util.UUID;
@@ -17,7 +16,6 @@ public class PathfinderGoalNearestAttackablePlayer extends PathfinderGoalNearest
 
                 // May only attack humans
                 if(!(entity instanceof EntityPlayer)) {
-                    System.out.println("DEBUG: Stopped from targeting a non-human");
                     return false;
                 }
 
