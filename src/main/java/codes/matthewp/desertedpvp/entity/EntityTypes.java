@@ -12,7 +12,7 @@ import java.util.Map;
 
 public enum EntityTypes {
 
-    DOPPEL_GANGER("PigZombie", 57, EntityDoppleGanger.class);
+    DOPPEL_GANGER("PigZombie", 57, EntityDoppelGanger.class);
 
     private EntityTypes(String name, int id, Class<? extends Entity> custom) {
         addToMaps(custom, name, id);

@@ -1,9 +1,8 @@
 package codes.matthewp.desertedpvp.killstreak.impl;
 
-import codes.matthewp.desertedpvp.entity.EntityDoppleGanger;
+import codes.matthewp.desertedpvp.entity.EntityDoppelGanger;
 import codes.matthewp.desertedpvp.entity.EntityTypes;
 import codes.matthewp.desertedpvp.killstreak.IKillStreak;
-import org.bukkit.ChatColor;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.entity.Player;
 
@@ -18,7 +17,7 @@ public class DoppleGanger extends IKillStreak {
     @Override
     public void execute(Player p) {
         name = name.replaceAll("%PLAYER%", p.getName());
-        EntityTypes.spawnEntity(new EntityDoppleGanger(p.getWorld(), p.getUniqueId()), p.getLocation(), name);
+        EntityTypes.spawnEntity(new EntityDoppelGanger(p.getWorld(), p.getUniqueId()), p.getLocation(), name);
     }
 
     @Override

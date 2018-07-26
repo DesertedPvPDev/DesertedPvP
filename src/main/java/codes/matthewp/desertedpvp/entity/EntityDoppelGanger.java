@@ -8,11 +8,11 @@ import java.lang.reflect.Field;
 import java.util.List;
 import java.util.UUID;
 
-public class EntityDoppleGanger extends EntityPigZombie {
+public class EntityDoppelGanger extends EntityPigZombie {
 
     private String name;
 
-    public EntityDoppleGanger(org.bukkit.World world, UUID ownerUUID) {
+    public EntityDoppelGanger(org.bukkit.World world, UUID ownerUUID) {
         super(((CraftWorld) world).getHandle());
         List goalB = (List)getPrivateField("b", PathfinderGoalSelector.class, goalSelector); goalB.clear();
         List goalC = (List)getPrivateField("c", PathfinderGoalSelector.class, goalSelector); goalC.clear();
