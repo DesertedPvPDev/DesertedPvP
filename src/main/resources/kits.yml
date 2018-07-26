@@ -79,3 +79,10 @@ beast_master:
   price: 0
   perm: 'desertedpvp.kit.beast_master'
   dogName: "&c%PLAYER%'s hound"
+porkupine:
+  name: '&6PorcupineKit'
+  lore:
+    - '&6Oww.... Spikey'
+  icon: CACTUS
+  price: 0
+  perm: 'desertedpvp.kit.porkupine'

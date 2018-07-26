@@ -43,6 +43,7 @@ public class KitManager {
         addKit(new BattleBaccaKit());
         addKit(new RichKit());
         addKit(new BeastMasterKit());
+        addKit(new PorcupineKit());
     }
 
     public static void loadKit(String key, ConfigurationSection section) {
