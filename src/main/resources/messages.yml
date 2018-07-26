@@ -26,7 +26,7 @@ notEnoughKS: '&cYou do not have a high enough kill streak. You need %NEEDED% mor
 resetKSUsage: '&cInvalid command. Correct usage: /resetks <player>'
 resetUserKS: '&bYou have reset this players kill streak'
 addKSUsage: '&cInvalid command. Correct usage: /addks <player> (amount)'
-addedKS: '&bYou have added 1 to this players kill streak'
+addedKS: '&bYou have added %AMOUNT% to this players kill streak'
 notYourDrop: '&cThat is not your supply drop!'
 
 # Sniper kill

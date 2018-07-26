@@ -26,7 +26,9 @@ public class AddKSCmd implements CommandExecutor {
                     if (p != null) {
                         addKS(p, 1);
 
-                        commandSender.sendMessage(Messages.getMessage("addedKS"));
+                        String msg = Messages.getMessage("addedKS");
+                        msg = msg.replaceAll("%AMOUNT%", String.valueOf(1));
+                        commandSender.sendMessage(msg);
                         return true;
                     } else {
                         commandSender.sendMessage(Messages.getMessage("playerNotOnline"));
@@ -37,7 +39,9 @@ public class AddKSCmd implements CommandExecutor {
                     if (p != null) {
                         addKS(p, Integer.valueOf(args[1]));
 
-                        commandSender.sendMessage(Messages.getMessage("addedKS"));
+                        String msg = Messages.getMessage("addedKS");
+                        msg = msg.replaceAll("%AMOUNT%", args[1]);
+                        commandSender.sendMessage(msg);
                         return true;
                     } else {
                         commandSender.sendMessage(Messages.getMessage("playerNotOnline"));
