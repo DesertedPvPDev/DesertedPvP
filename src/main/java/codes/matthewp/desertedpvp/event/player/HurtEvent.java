@@ -42,7 +42,6 @@ public class HurtEvent implements Listener {
 
         double distance = hit.getLocation().distance(shooter.getLocation());
 
-        System.out.println("DIST: " + distance);
         if (distance < 50)
             return;
 
