@@ -1,5 +1,6 @@
 package codes.matthewp.desertedpvp.kit;
 
+import codes.matthewp.desertedpvp.user.User;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.configuration.ConfigurationSection;
@@ -46,6 +47,10 @@ public class IKit {
     }
 
     public void gotKill(Player killer, Player killed) {
+
+    }
+
+    public void hasRightClicked(User p, ItemStack whatGotClicked) {
 
     }
 

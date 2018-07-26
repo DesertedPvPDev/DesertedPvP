@@ -41,6 +41,8 @@ public class KitManager {
         addKit(new JuggernautKit());
         addKit(new SniperKit());
         addKit(new BattleBaccaKit());
+        addKit(new RichKit());
+        addKit(new BeastMastertKit());
     }
 
     public static void loadKit(String key, ConfigurationSection section) {

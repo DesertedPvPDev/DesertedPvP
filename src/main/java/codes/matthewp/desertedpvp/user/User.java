@@ -20,6 +20,7 @@ public class User {
     private UUID playerUUID;
     private int currentKS;
     private Inventory lastInv;
+    private boolean hasUsedOnceAbility = false;
 
     public User(UUID playerUUID) {
         this.playerUUID = playerUUID;
@@ -53,8 +54,20 @@ public class User {
         this.currentKS = currentKS - amount;
     }
 
+    public boolean hasUsedOnceAbility() {
+        return hasUsedOnceAbility;
+    }
+
+    public void setHasUsedOnceAbility(boolean bool) {
+        this.hasUsedOnceAbility = bool;
+    }
+
     public Inventory getLastInv() {
         return lastInv;
+    }
+
+    public UUID getPlayerUUID() {
+        return playerUUID;
     }
 
     public void setLastInv(Inventory inv) {
@@ -63,6 +76,7 @@ public class User {
 
     public void restPlayer() {
         resetKS();
+        setHasUsedOnceAbility(false);
         Player p = Bukkit.getPlayer(playerUUID);
         p.getInventory().clear();
         p.getInventory().setArmorContents(null);

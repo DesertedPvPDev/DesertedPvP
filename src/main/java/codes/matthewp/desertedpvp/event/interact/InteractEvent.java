@@ -1,5 +1,6 @@
 package codes.matthewp.desertedpvp.event.interact;
 
+import codes.matthewp.desertedpvp.DesertedPvP;
 import codes.matthewp.desertedpvp.data.Messages;
 import codes.matthewp.desertedpvp.killstreak.KillStreaks;
 import codes.matthewp.desertedpvp.kit.KitSelector;
@@ -10,6 +11,12 @@ import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 
 public class InteractEvent implements Listener {
+
+    private DesertedPvP pvp;
+
+    public InteractEvent(DesertedPvP pvp) {
+        this.pvp = pvp;
+    }
 
     @EventHandler
     public void onInteract(PlayerInteractEvent e) {
@@ -29,6 +36,8 @@ public class InteractEvent implements Listener {
                     e.getPlayer().sendMessage(Messages.getMessage("notYourDrop"));
                 }
             }
+        } else if(e.getAction() == Action.RIGHT_CLICK_BLOCK || e.getAction() == Action.RIGHT_CLICK_AIR) {
+            pvp.getUserManager().getUser(e.getPlayer()).getCurrentKit().hasRightClicked(pvp.getUserManager().getUser(e.getPlayer()), e.getPlayer().getItemInHand());
         }
     }
 }

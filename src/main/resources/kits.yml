@@ -71,3 +71,11 @@ rich:
   icon: DIAMOND
   price: 0
   perm: 'desertedpvp.kit.rich'
+beast_master:
+  name: '&5Beast Master'
+  lore:
+    - '&5We needed someone to control these beast'
+  icon: RAW_BEEF
+  price: 0
+  perm: 'desertedpvp.kit.beast_master'
+  dogName: "&c%PLAYER%'s hound"
