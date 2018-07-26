@@ -5,6 +5,7 @@ import codes.matthewp.desertedpvp.kit.IKit;
 import codes.matthewp.desertedpvp.kit.KitSelector;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.Inventory;
 
 import java.util.UUID;
 
@@ -16,6 +17,7 @@ public class User {
     private IKit currentKit;
     private UUID playerUUID;
     private int currentKS;
+    private Inventory lastInv;
 
     public User(UUID playerUUID) {
         this.playerUUID = playerUUID;
@@ -47,6 +49,14 @@ public class User {
 
     public void subtractKS(int amount) {
         this.currentKS = currentKS - amount;
+    }
+
+    public Inventory getLastInv() {
+        return lastInv;
+    }
+
+    public void setLastInv(Inventory inv) {
+        this.lastInv = inv;
     }
 
     public void restPlayer() {
