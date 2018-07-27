@@ -35,11 +35,8 @@ public class BattleBaccaKit extends IKit {
                     for (Enchantment enchant : stack.getEnchantments().keySet()) {
                         System.out.println(enchant.getName());
                         if (enchant.getName().equalsIgnoreCase("DAMAGE_ALL")) {
-                            System.out.println("FOUND SHARPNESS ON AXE");
                             int nextLevel = stack.getEnchantments().get(enchant) + 1;
-                            System.out.println("ENCHANTS NEXT LEVEL IS: " + nextLevel);
                             if (nextLevel <= 4) {
-                                System.out.println("REMOVING AND ADDING BACK");
                                 stack.removeEnchantment(enchant);
                                 stack.addEnchantment(Enchantment.DAMAGE_ALL, nextLevel);
                             }
