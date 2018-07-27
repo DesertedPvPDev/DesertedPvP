@@ -13,6 +13,8 @@ import org.bukkit.inventory.ItemStack;
 public class BeastMasterKit extends IKit {
 
     private String dogName;
+    private String summonedBeasts;
+    private String noMoreSummon;
 
     @Override
     public String intelID() {
@@ -36,12 +38,14 @@ public class BeastMasterKit extends IKit {
     public void load(ConfigurationSection sec) {
         super.load(sec);
         dogName = sec.getString("dogName");
+        summonedBeasts = sec.getString("summonedBeasts");
+        noMoreSummon = sec.getString("noMoreSummon");
     }
 
     @Override
     public void hasRightClicked(User user, ItemStack whatGotClicked) {
-        if(whatGotClicked.getType() == Material.IRON_SWORD) {
-            if(!user.hasUsedOnceAbility()) {
+        if (whatGotClicked.getType() == Material.IRON_SWORD) {
+            if (!user.hasUsedOnceAbility()) {
                 Player p = Bukkit.getPlayer(user.getPlayerUUID());
 
                 for (int i = 1; i <= 4; i++) {
@@ -53,8 +57,10 @@ public class BeastMasterKit extends IKit {
                     cName = color(cName);
                     wolf.setCustomName(cName);
                 }
-
+                Bukkit.getPlayer(user.getPlayerUUID()).sendMessage(color(summonedBeasts));
                 user.setHasUsedOnceAbility(true);
+            } else {
+                Bukkit.getPlayer(user.getPlayerUUID()).sendMessage(color(noMoreSummon));
             }
         }
     }

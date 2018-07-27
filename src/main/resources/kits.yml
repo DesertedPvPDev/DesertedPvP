@@ -79,6 +79,8 @@ beast_master:
   price: 0
   perm: 'desertedpvp.kit.beast_master'
   dogName: "&c%PLAYER%'s hound"
+  noMoreSummon: '&cYou have already used this ability this life.'
+  summonedBeasts: '&cYOu have summoned your beasts'
 porkupine:
   name: '&6PorcupineKit'
   lore:

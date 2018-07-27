@@ -36,8 +36,10 @@ public class InteractEvent implements Listener {
                     e.getPlayer().sendMessage(Messages.getMessage("notYourDrop"));
                 }
             }
-        } else if(e.getAction() == Action.RIGHT_CLICK_BLOCK || e.getAction() == Action.RIGHT_CLICK_AIR) {
-            pvp.getUserManager().getUser(e.getPlayer()).getCurrentKit().hasRightClicked(pvp.getUserManager().getUser(e.getPlayer()), e.getPlayer().getItemInHand());
+        } else if (e.getAction() == Action.RIGHT_CLICK_BLOCK || e.getAction() == Action.RIGHT_CLICK_AIR) {
+            if (pvp.getUserManager().getUser(e.getPlayer()).getCurrentKit() != null) {
+                pvp.getUserManager().getUser(e.getPlayer()).getCurrentKit().hasRightClicked(pvp.getUserManager().getUser(e.getPlayer()), e.getPlayer().getItemInHand());
+            }
         }
     }
 }

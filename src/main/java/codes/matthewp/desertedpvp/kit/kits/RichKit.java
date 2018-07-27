@@ -27,11 +27,11 @@ public class RichKit extends IKit {
 
         ItemStack legs = new ItemStack(Material.DIAMOND_LEGGINGS);
         legs.addEnchantment(Enchantment.PROTECTION_PROJECTILE, 1);
-        p.getInventory().setHelmet(legs);
+        p.getInventory().setLeggings(legs);
 
         ItemStack boots = new ItemStack(Material.DIAMOND_BOOTS);
         boots.addEnchantment(Enchantment.PROTECTION_PROJECTILE, 1);
-        p.getInventory().setHelmet(boots);
+        p.getInventory().setBoots(boots);
 
         p.getInventory().addItem(new ItemStack(Material.DIAMOND_SWORD));
         p.getInventory().addItem(new ItemStack(Material.COOKED_BEEF));

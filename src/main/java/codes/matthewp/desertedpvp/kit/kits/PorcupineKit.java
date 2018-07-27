@@ -20,11 +20,11 @@ public class PorcupineKit extends IKit {
         ItemStack helm = new ItemStack(Material.LEATHER_HELMET);
         helm.addEnchantment(Enchantment.THORNS, 2);
         ItemStack chest = new ItemStack(Material.IRON_CHESTPLATE);
-        helm.addEnchantment(Enchantment.THORNS, 2);
+        chest.addEnchantment(Enchantment.THORNS, 2);
         ItemStack legs = new ItemStack(Material.IRON_LEGGINGS);
-        helm.addEnchantment(Enchantment.THORNS, 2);
-        ItemStack boots = new ItemStack(Material.LEATHER_HELMET);
-        helm.addEnchantment(Enchantment.THORNS, 2);
+        legs.addEnchantment(Enchantment.THORNS, 2);
+        ItemStack boots = new ItemStack(Material.LEATHER_BOOTS);
+        boots.addEnchantment(Enchantment.THORNS, 2);
 
         p.getInventory().setHelmet(helm);
         p.getInventory().setChestplate(chest);

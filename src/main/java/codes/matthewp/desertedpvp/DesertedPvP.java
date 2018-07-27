@@ -36,7 +36,7 @@ public class DesertedPvP extends JavaPlugin {
         regListeners(
                 new JoinEvent(this),
                 new LeaveEvent(this),
-                new InteractEvent(),
+                new InteractEvent(this),
                 new HungerEvent(),
                 new RespawnEvent(this),
                 new DeathEvent(this),
