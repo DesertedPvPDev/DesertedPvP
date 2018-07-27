@@ -50,4 +50,5 @@ killStreaks:
       name: '&2Iron Golem'
       mat: 'IRON_INGOT'
       lore: '&2Calling in the big guns!'
+    entityName: "&c%PLAYER%'s Iron Golem"
     cost: 15

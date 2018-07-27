@@ -1,4 +1,4 @@
-package codes.matthewp.desertedpvp.entity;
+package codes.matthewp.desertedpvp.entity.impl;
 
 import codes.matthewp.desertedpvp.entity.pathfinder.PathfinderGoalNearestAttackablePlayer;
 import net.minecraft.server.v1_8_R3.*;
@@ -8,17 +8,18 @@ import java.lang.reflect.Field;
 import java.util.List;
 import java.util.UUID;
 
-public class EntityDoppelGanger extends EntityPigZombie {
+public class EntityIronBlocks extends EntityIronGolem {
 
-    private String name;
-
-    public EntityDoppelGanger(org.bukkit.World world, UUID ownerUUID) {
+    public EntityIronBlocks(org.bukkit.World world, UUID ownerUUID) {
         super(((CraftWorld) world).getHandle());
-        List goalB = (List)getPrivateField("b", PathfinderGoalSelector.class, goalSelector); goalB.clear();
-        List goalC = (List)getPrivateField("c", PathfinderGoalSelector.class, goalSelector); goalC.clear();
-        List targetB = (List)getPrivateField("b", PathfinderGoalSelector.class, targetSelector); targetB.clear();
-        List targetC = (List)getPrivateField("c", PathfinderGoalSelector.class, targetSelector); targetC.clear();
-        this.name = name;
+        List goalB = (List) getPrivateField("b", PathfinderGoalSelector.class, goalSelector);
+        goalB.clear();
+        List goalC = (List) getPrivateField("c", PathfinderGoalSelector.class, goalSelector);
+        goalC.clear();
+        List targetB = (List) getPrivateField("b", PathfinderGoalSelector.class, targetSelector);
+        targetB.clear();
+        List targetC = (List) getPrivateField("c", PathfinderGoalSelector.class, targetSelector);
+        targetC.clear();
         this.fireProof = true;
 
         this.goalSelector.a(0, new PathfinderGoalFloat(this));

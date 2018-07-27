@@ -1,6 +1,6 @@
 package codes.matthewp.desertedpvp.killstreak.impl;
 
-import codes.matthewp.desertedpvp.entity.EntityDoppelGanger;
+import codes.matthewp.desertedpvp.entity.impl.EntityDoppelGanger;
 import codes.matthewp.desertedpvp.entity.EntityTypes;
 import codes.matthewp.desertedpvp.killstreak.IKillStreak;
 import org.bukkit.configuration.ConfigurationSection;
