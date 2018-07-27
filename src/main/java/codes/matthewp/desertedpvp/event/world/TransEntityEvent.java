@@ -3,8 +3,12 @@ package codes.matthewp.desertedpvp.event.world;
 import codes.matthewp.desertedpvp.DesertedPvP;
 import codes.matthewp.desertedpvp.loot.SupplyLoot;
 import org.bukkit.Material;
+import org.bukkit.Sound;
 import org.bukkit.block.Chest;
+import org.bukkit.entity.Entity;
+import org.bukkit.entity.EntityType;
 import org.bukkit.entity.FallingBlock;
+import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityChangeBlockEvent;
@@ -31,6 +35,13 @@ public class TransEntityEvent implements Listener {
                     Chest chest = (Chest) e.getBlock().getState();
                     Inventory inv = chest.getBlockInventory();
                     SupplyLoot.generateLoot(inv);
+                    // Get entities in a 4x4x4 square
+                    for (Entity entity : e.getEntity().getNearbyEntities(4, 4, 4)) {
+                        if(entity.getType() == EntityType.PLAYER) {
+                            Player p = (Player) entity;
+                            p.playSound(p.getLocation(), Sound.DIG_GRASS, 1F, 1F);
+                        }
+                    }
                 }
             }
         }
