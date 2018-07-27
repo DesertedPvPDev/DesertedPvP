@@ -16,8 +16,9 @@ public class DoppleGanger extends IKillStreak {
 
     @Override
     public void execute(Player p) {
-        name = name.replaceAll("%PLAYER%", p.getName());
-        EntityTypes.spawnEntity(new EntityDoppelGanger(p.getWorld(), p.getUniqueId()), p.getLocation(), name);
+        String playerName = name;
+        playerName = playerName.replaceAll("%PLAYER%", p.getName());
+        EntityTypes.spawnEntity(new EntityDoppelGanger(p.getWorld(), p.getUniqueId()), p.getLocation(), playerName);
     }
 
     @Override
