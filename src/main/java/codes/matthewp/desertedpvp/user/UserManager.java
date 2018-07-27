@@ -73,4 +73,13 @@ public class UserManager {
     public User genUser(UUID uuid) {
         return new User(uuid);
     }
+
+    /**
+     * Check if a user is already in local cache
+     * @param p Player object
+     * @return boolean True if we have the player locally
+     */
+    public boolean hasUser(Player p) {
+        return playerUserMap.containsKey(p.getUniqueId());
+    }
 }

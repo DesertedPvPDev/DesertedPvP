@@ -25,10 +25,15 @@ public class JoinEvent implements Listener {
         p.teleport(new Location(Bukkit.getWorld("world"),
                 SpawnData.getX(), SpawnData.getY(), SpawnData.getZ(), SpawnData.getYaw(), SpawnData.getPitch()));
 
-        User user = pvp.getUserManager().genUser(p.getUniqueId());
-        user.restPlayer();
-        pvp.getUserManager().addUser(p.getUniqueId(), user);
+        User user;
+        if(!pvp.getUserManager().hasUser(p)) {
+            user = pvp.getUserManager().genUser(p.getUniqueId());
+            pvp.getUserManager().addUser(p.getUniqueId(), user);
+        } else {
+            user = pvp.getUserManager().getUser(e.getPlayer());
+        }
 
+        user.restPlayer();
         e.setJoinMessage("");
         Bukkit.broadcastMessage(Messages.getMessage("welcome").replaceAll("%PLAYER%", p.getName()));
     }
