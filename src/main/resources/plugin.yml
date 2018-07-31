@@ -11,3 +11,5 @@ commands:
     description: Add to a players kill streak
   resetks:
     description: Reset a players kill streak
+  balance:
+    description: Get your current balance

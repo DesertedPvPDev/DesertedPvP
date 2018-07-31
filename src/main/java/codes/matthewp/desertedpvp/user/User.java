@@ -19,6 +19,7 @@ public class User {
     private IKit currentKit;
     private UUID playerUUID;
     private int currentKS = 0;
+    private int coins = 0;
     private Inventory lastInv;
     private boolean hasUsedOnceAbility = false;
 
@@ -34,7 +35,16 @@ public class User {
         this.currentKit = kit;
     }
 
-    public int getCurrentKS() { return currentKS;
+    public int getCurrentKS() {
+        return currentKS;
+    }
+
+    public void setCoins(int amount) {
+        this.coins = amount;
+    }
+
+    public int getCoins() {
+        return coins;
     }
 
     public void resetKS() {

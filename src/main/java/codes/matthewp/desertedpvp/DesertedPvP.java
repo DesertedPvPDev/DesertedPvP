@@ -2,8 +2,10 @@ package codes.matthewp.desertedpvp;
 
 import codes.matthewp.desertedpvp.cmd.admin.AddKSCmd;
 import codes.matthewp.desertedpvp.cmd.admin.ResetKSCmd;
+import codes.matthewp.desertedpvp.cmd.player.BalanceCmd;
 import codes.matthewp.desertedpvp.cmd.spawn.SetSpawnCmd;
 import codes.matthewp.desertedpvp.cmd.spawn.SpawnCmd;
+import codes.matthewp.desertedpvp.data.Database;
 import codes.matthewp.desertedpvp.event.entity.EntityDeath;
 import codes.matthewp.desertedpvp.event.interact.InteractEvent;
 import codes.matthewp.desertedpvp.event.interact.InventoryClickEvent;
@@ -45,12 +47,14 @@ public class DesertedPvP extends JavaPlugin {
                 new DropEvent(this),
                 new TransEntityEvent(),
                 new EntityDeath());
+        initDatabase();
         instance = this;
     }
 
     @Override
     public void onDisable() {
         instance = null;
+        Database.getInstance().disconnect();
     }
 
     public FileUtil getFileUtil() {
@@ -62,6 +66,7 @@ public class DesertedPvP extends JavaPlugin {
         getCommand("setspawn").setExecutor(new SetSpawnCmd(this));
         getCommand("addks").setExecutor(new AddKSCmd(this));
         getCommand("resetks").setExecutor(new ResetKSCmd(this));
+        getCommand("balance").setExecutor(new BalanceCmd(this));
     }
 
     private void regListeners(Listener... listeners) {
@@ -72,10 +77,19 @@ public class DesertedPvP extends JavaPlugin {
         }
     }
 
+    private void initDatabase() {
+        String user = fileUtil.getDatabase().getString("username");
+        String password = fileUtil.getDatabase().getString("password");
+        String url = fileUtil.getDatabase().getString("url");
+        int port = fileUtil.getDatabase().getInt("port");
+        new Database(url, port, user, password);
+    }
+
     public static DesertedPvP getInstace() {
         return instance;
     }
 
+    // UPDATE `user_coins` SET `amount` = '100' WHERE `user_coins`.`uuid` =
     public UserManager getUserManager() {
         return user;
     }

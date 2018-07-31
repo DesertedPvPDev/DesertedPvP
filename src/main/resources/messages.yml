@@ -31,3 +31,6 @@ notYourDrop: '&cThat is not your supply drop!'
 
 # Sniper kill
 sniperKill: '&6%SNIPER% has &cSNIPED &6%KILLED%!'
+
+# Coins command
+bal: '&bBalance: %COINS%'
