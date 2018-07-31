@@ -10,6 +10,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Collection;
 
 public class Database {
 
@@ -46,13 +47,32 @@ public class Database {
         dataSource.setPassword(password);
     }
 
+    public void updateUsersCoins(Collection<User> users) {
+        try {
+            String query = "UPDATE `user_coins` SET `amount` = ? WHERE `user_coins`.`uuid` = ?";
+
+            Connection conn = getConnection();
+            PreparedStatement queryStmt = conn.prepareStatement(query);
+
+            for (User user : users) {
+                queryStmt.setInt(1, user.getCoins());
+                queryStmt.setString(2, user.getPlayerUUID().toString());
+                queryStmt.addBatch();
+            }
+
+            queryStmt.executeBatch();
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+    }
+
     public void insertUserToDatabase(User user) {
         BukkitScheduler scheduler = Bukkit.getScheduler();
         scheduler.scheduleSyncDelayedTask(DesertedPvP.getInstace(), new Runnable() {
             @Override
             public void run() {
                 try {
-                    // TODO NO PARAENTHESIS
                     String insertSql = "INSERT INTO `user_coins`(`uuid`, `amount`) VALUES (?,?)";
                     Connection conn = getConnection();
                     PreparedStatement stmt = conn.prepareStatement(insertSql);

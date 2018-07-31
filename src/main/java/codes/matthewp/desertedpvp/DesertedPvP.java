@@ -1,8 +1,10 @@
 package codes.matthewp.desertedpvp;
 
 import codes.matthewp.desertedpvp.cmd.admin.AddKSCmd;
+import codes.matthewp.desertedpvp.cmd.admin.GiveCoinsCmd;
 import codes.matthewp.desertedpvp.cmd.admin.ResetKSCmd;
 import codes.matthewp.desertedpvp.cmd.player.BalanceCmd;
+import codes.matthewp.desertedpvp.cmd.player.PayCmd;
 import codes.matthewp.desertedpvp.cmd.spawn.SetSpawnCmd;
 import codes.matthewp.desertedpvp.cmd.spawn.SpawnCmd;
 import codes.matthewp.desertedpvp.data.Database;
@@ -54,6 +56,7 @@ public class DesertedPvP extends JavaPlugin {
     @Override
     public void onDisable() {
         instance = null;
+        user.saveUserCoins();
         Database.getInstance().disconnect();
     }
 
@@ -67,6 +70,8 @@ public class DesertedPvP extends JavaPlugin {
         getCommand("addks").setExecutor(new AddKSCmd(this));
         getCommand("resetks").setExecutor(new ResetKSCmd(this));
         getCommand("balance").setExecutor(new BalanceCmd(this));
+        getCommand("addcoins").setExecutor(new GiveCoinsCmd(this));
+        getCommand("pay").setExecutor(new PayCmd(this));
     }
 
     private void regListeners(Listener... listeners) {
@@ -89,7 +94,6 @@ public class DesertedPvP extends JavaPlugin {
         return instance;
     }
 
-    // UPDATE `user_coins` SET `amount` = '100' WHERE `user_coins`.`uuid` =
     public UserManager getUserManager() {
         return user;
     }

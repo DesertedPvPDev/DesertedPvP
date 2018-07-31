@@ -87,6 +87,13 @@ public class UserManager {
     }
 
     /**
+     * Save all users coins
+     */
+    public void saveUserCoins() {
+        Database.getInstance().updateUsersCoins(playerUserMap.values());
+    }
+
+    /**
      * Check if a user is already in local cache
      * @param p Player object
      * @return boolean True if we have the player locally

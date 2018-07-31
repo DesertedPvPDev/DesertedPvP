@@ -34,3 +34,9 @@ sniperKill: '&6%SNIPER% has &cSNIPED &6%KILLED%!'
 
 # Coins command
 bal: '&bBalance: %COINS%'
+addCoinsUsage: '&cInvalid command. Correct usage: /addcoins <player> <amount>'
+addCoins: "&bAdded %AMOUNT% to %PLAYER%'s account"
+gotCoins: '&b%AMOUNT% coins have been added to your account.'
+payInvalidUsage: '&cInvalid command. Correct usage: /pay <player> <amount>'
+cantPayThatMuch: '&cCant pay what you dont have ;/'
+minusCoins: '&b%AMOUNT% coins have been subtracted from your account.'

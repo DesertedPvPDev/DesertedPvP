@@ -13,3 +13,7 @@ commands:
     description: Reset a players kill streak
   balance:
     description: Get your current balance
+  addcoins:
+    description: Add coins to a players account
+  pay:
+    description: Pay a player

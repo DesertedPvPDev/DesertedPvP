@@ -1,5 +1,6 @@
 package codes.matthewp.desertedpvp.user;
 
+import codes.matthewp.desertedpvp.data.Messages;
 import codes.matthewp.desertedpvp.killstreak.KillStreaks;
 import codes.matthewp.desertedpvp.kit.IKit;
 import codes.matthewp.desertedpvp.kit.KitSelector;
@@ -41,6 +42,16 @@ public class User {
 
     public void setCoins(int amount) {
         this.coins = amount;
+    }
+
+    public void addCoins(int amount) {
+        this.coins = this.coins + amount;
+        Bukkit.getPlayer(playerUUID).sendMessage(Messages.getMessage("gotCoins").replaceAll("%AMOUNT%", String.valueOf(amount)));
+    }
+
+    public void subtractCounts(int amount) {
+        this.coins = coins - amount;
+        Bukkit.getPlayer(playerUUID).sendMessage(Messages.getMessage("minusCoins").replaceAll("%AMOUNT%", String.valueOf(amount)));
     }
 
     public int getCoins() {
@@ -89,7 +100,6 @@ public class User {
         Player p = Bukkit.getPlayer(playerUUID);
         p.getInventory().clear();
         p.getInventory().setArmorContents(null);
-        p.getActivePotionEffects().clear();
         p.setFireTicks(0);
         p.setExp(0F);
         p.setGameMode(GameMode.SURVIVAL);
