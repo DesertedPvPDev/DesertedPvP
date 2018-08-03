@@ -9,6 +9,7 @@ import codes.matthewp.desertedpvp.cmd.spawn.SetSpawnCmd;
 import codes.matthewp.desertedpvp.cmd.spawn.SpawnCmd;
 import codes.matthewp.desertedpvp.data.Database;
 import codes.matthewp.desertedpvp.event.entity.EntityDeath;
+import codes.matthewp.desertedpvp.event.entity.EntitySpawn;
 import codes.matthewp.desertedpvp.event.interact.InteractEvent;
 import codes.matthewp.desertedpvp.event.interact.InventoryClickEvent;
 import codes.matthewp.desertedpvp.event.player.*;
@@ -48,7 +49,8 @@ public class DesertedPvP extends JavaPlugin {
                 new InventoryClickEvent(this),
                 new DropEvent(this),
                 new TransEntityEvent(),
-                new EntityDeath());
+                new EntityDeath(),
+                new EntitySpawn());
         initDatabase();
         instance = this;
     }
