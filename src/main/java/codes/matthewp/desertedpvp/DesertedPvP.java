@@ -18,6 +18,7 @@ import codes.matthewp.desertedpvp.event.player.*;
 import codes.matthewp.desertedpvp.event.world.DropEvent;
 import codes.matthewp.desertedpvp.event.world.TransEntityEvent;
 import codes.matthewp.desertedpvp.file.FileUtil;
+import codes.matthewp.desertedpvp.placeholder.CoinsPlaceholder;
 import codes.matthewp.desertedpvp.user.UserManager;
 import org.bukkit.Bukkit;
 import org.bukkit.event.Listener;
@@ -59,6 +60,11 @@ public class DesertedPvP extends JavaPlugin {
         core = DesertedCore.getCore();
         coinsDataAccess = new CoinsDataAccess(getDB());
         instance = this;
+
+        if (Bukkit.getPluginManager().isPluginEnabled("PlaceholderAPI")) {
+            System.out.println("Found placeholder API. Will attempt to hook.");
+            new CoinsPlaceholder().register();
+        }
     }
 
     @Override

@@ -2,6 +2,7 @@ name: DesertedPvP
 main: codes.matthewp.desertedpvp.DesertedPvP
 version: 0.0.1
 depend: [DesertedCore]
+softdepend: [PlaceholderAPI]
 
 commands:
   setspawn:
