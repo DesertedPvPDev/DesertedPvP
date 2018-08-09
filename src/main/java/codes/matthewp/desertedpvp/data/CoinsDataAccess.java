@@ -1,57 +1,44 @@
 package codes.matthewp.desertedpvp.data;
 
+import codes.matthewp.desertedcore.database.Database;
+import codes.matthewp.desertedcore.database.DatabaseAccess;
 import codes.matthewp.desertedpvp.DesertedPvP;
 import codes.matthewp.desertedpvp.user.User;
-import com.zaxxer.hikari.HikariDataSource;
 import org.bukkit.Bukkit;
 import org.bukkit.scheduler.BukkitScheduler;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.Collection;
 
-public class Database {
+public class CoinsDataAccess extends DatabaseAccess {
 
-    private static Database instance;
+    private CoinsDataAccess ins;
 
-    private String url;
-    private String userName;
-    private String password;
-    private int port;
-
-    private HikariDataSource dataSource;
-
-    public Database(String url, int port, String username, String password) {
-        this.url = url;
-        this.port = port;
-        this.userName = username;
-        this.password = password;
-        instance = this;
-        loadDataSource();
+    public CoinsDataAccess(Database db) {
+        super(db);
+        ins = this;
     }
 
-    public Connection getConnection() throws SQLException {
-        return dataSource.getConnection();
-    }
+    @Override
+    public void loadTables() {
+        setHasLoaded(true);
+        try {
+            String query = "CREATE TABLE IF NOT EXISTS `user_coins` ( `uuid` VARCHAR(255) CHARACTER SET latin7 COLLATE latin7_bin, `amount` INT, PRIMARY KEY (`uuid`) ) ENGINE=InnoDB;";
 
-    public void disconnect() {
-        dataSource.close();
-    }
+            Connection conn = db.getConnection(this);
+            Statement stmt = conn.createStatement();
+            stmt.executeUpdate(query);
 
-    private void loadDataSource() {
-        dataSource = new HikariDataSource();
-        dataSource.setJdbcUrl("jdbc:mysql://" + url + ":" + String.valueOf(port) + "/desertedpvp");
-        dataSource.setUsername(userName);
-        dataSource.setPassword(password);
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
     }
 
     public void updateUsersCoins(Collection<User> users) {
         try {
             String query = "UPDATE `user_coins` SET `amount` = ? WHERE `user_coins`.`uuid` = ?";
 
-            Connection conn = getConnection();
+            Connection conn = db.getConnection(this);
             PreparedStatement queryStmt = conn.prepareStatement(query);
 
             for (User user : users) {
@@ -74,7 +61,7 @@ public class Database {
             public void run() {
                 try {
                     String insertSql = "INSERT INTO `user_coins`(`uuid`, `amount`) VALUES (?,?)";
-                    Connection conn = getConnection();
+                    Connection conn = db.getConnection(ins);
                     PreparedStatement stmt = conn.prepareStatement(insertSql);
                     stmt.setString(1, user.getPlayerUUID().toString());
                     stmt.setInt(2, user.getCoins());
@@ -91,7 +78,7 @@ public class Database {
         int amount = 0;
         String sqlQuery = "SELECT * FROM `user_coins` WHERE uuid = ?";
         try {
-            Connection con = getConnection();
+            Connection con = db.getConnection(this);
             PreparedStatement statement = con.prepareStatement(sqlQuery);
             statement.setString(1, user.getPlayerUUID().toString());
             ResultSet set = statement.executeQuery();
@@ -110,7 +97,4 @@ public class Database {
         return amount;
     }
 
-    public static Database getInstance() {
-        return instance;
-    }
 }

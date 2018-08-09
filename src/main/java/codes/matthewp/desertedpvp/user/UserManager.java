@@ -1,7 +1,6 @@
 package codes.matthewp.desertedpvp.user;
 
 import codes.matthewp.desertedpvp.DesertedPvP;
-import codes.matthewp.desertedpvp.data.Database;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitScheduler;
@@ -79,7 +78,7 @@ public class UserManager {
         scheduler.scheduleSyncDelayedTask(DesertedPvP.getInstace(), new Runnable() {
             @Override
             public void run() {
-               getUser(uuid).setCoins(Database.getInstance().getUsersCoins(user));
+                getUser(uuid).setCoins(DesertedPvP.getInstace().getCoinDataAccessor().getUsersCoins(user));
             }
         }, 20L);
 
@@ -90,7 +89,9 @@ public class UserManager {
      * Save all users coins
      */
     public void saveUserCoins() {
-        Database.getInstance().updateUsersCoins(playerUserMap.values());
+        if (!playerUserMap.isEmpty()) {
+            DesertedPvP.getInstace().getCoinDataAccessor().updateUsersCoins(playerUserMap.values());
+        }
     }
 
     /**

@@ -1,5 +1,7 @@
 package codes.matthewp.desertedpvp;
 
+import codes.matthewp.desertedcore.DesertedCore;
+import codes.matthewp.desertedcore.database.Database;
 import codes.matthewp.desertedpvp.cmd.admin.AddKSCmd;
 import codes.matthewp.desertedpvp.cmd.admin.GiveCoinsCmd;
 import codes.matthewp.desertedpvp.cmd.admin.ResetKSCmd;
@@ -7,7 +9,7 @@ import codes.matthewp.desertedpvp.cmd.player.BalanceCmd;
 import codes.matthewp.desertedpvp.cmd.player.PayCmd;
 import codes.matthewp.desertedpvp.cmd.spawn.SetSpawnCmd;
 import codes.matthewp.desertedpvp.cmd.spawn.SpawnCmd;
-import codes.matthewp.desertedpvp.data.Database;
+import codes.matthewp.desertedpvp.data.CoinsDataAccess;
 import codes.matthewp.desertedpvp.event.entity.EntityDeath;
 import codes.matthewp.desertedpvp.event.entity.EntitySpawn;
 import codes.matthewp.desertedpvp.event.interact.InteractEvent;
@@ -31,6 +33,9 @@ public class DesertedPvP extends JavaPlugin {
     private FileUtil fileUtil;
     private UserManager user;
     private static DesertedPvP instance;
+    private DesertedCore core;
+
+    private CoinsDataAccess coinsDataAccess;
 
     @Override
     public void onEnable() {
@@ -51,7 +56,8 @@ public class DesertedPvP extends JavaPlugin {
                 new TransEntityEvent(),
                 new EntityDeath(),
                 new EntitySpawn());
-        initDatabase();
+        core = DesertedCore.getCore();
+        coinsDataAccess = new CoinsDataAccess(getDB());
         instance = this;
     }
 
@@ -59,7 +65,7 @@ public class DesertedPvP extends JavaPlugin {
     public void onDisable() {
         instance = null;
         user.saveUserCoins();
-        Database.getInstance().disconnect();
+        core.getDB().disconnect();
     }
 
     public FileUtil getFileUtil() {
@@ -84,12 +90,12 @@ public class DesertedPvP extends JavaPlugin {
         }
     }
 
-    private void initDatabase() {
-        String user = fileUtil.getDatabase().getString("username");
-        String password = fileUtil.getDatabase().getString("password");
-        String url = fileUtil.getDatabase().getString("url");
-        int port = fileUtil.getDatabase().getInt("port");
-        new Database(url, port, user, password);
+    public Database getDB() {
+        return core.getDB();
+    }
+
+    public CoinsDataAccess getCoinDataAccessor() {
+        return coinsDataAccess;
     }
 
     public static DesertedPvP getInstace() {

@@ -25,14 +25,12 @@ public class FileUtil {
     private File messagesFile;
     private File kitsFile;
     private File killStreaksFile;
-    private File databaseFile;
 
     private FileConfiguration spawn;
     private FileConfiguration config;
     private FileConfiguration messages;
     private FileConfiguration kits;
     private FileConfiguration killStreaks;
-    private FileConfiguration database;
 
     public FileUtil(DesertedPvP pvp) {
         this.desertedPvP = pvp;
@@ -50,7 +48,6 @@ public class FileUtil {
         messagesFile = new File(desertedPvP.getDataFolder() + File.separator + "messages.yml");
         kitsFile = new File(desertedPvP.getDataFolder() + File.separator + "kits.yml");
         killStreaksFile = new File(desertedPvP.getDataFolder() + File.separator + "killstreaks.yml");
-        databaseFile = new File(desertedPvP.getDataFolder() + File.separator + "database.yml");
 
         if (!spawnFile.exists()) {
             saveRes(spawnFile);
@@ -72,9 +69,6 @@ public class FileUtil {
             saveRes(killStreaksFile);
         }
 
-        if (!databaseFile.exists()) {
-            saveRes(databaseFile);
-        }
     }
 
     public File getSpawnFile() {
@@ -89,9 +83,6 @@ public class FileUtil {
         return killStreaks;
     }
 
-    public FileConfiguration getDatabase() {
-        return database;
-    }
 
     private void loadData() {
         config = YamlConfiguration.loadConfiguration(configFile);
@@ -99,7 +90,6 @@ public class FileUtil {
         messages = YamlConfiguration.loadConfiguration(messagesFile);
         kits = YamlConfiguration.loadConfiguration(kitsFile);
         killStreaks = YamlConfiguration.loadConfiguration(killStreaksFile);
-        database = YamlConfiguration.loadConfiguration(databaseFile);
 
         for (String key : spawn.getKeys(false)) {
             SpawnData.addSpawnDat(key, spawn.getInt(key));

@@ -19,13 +19,13 @@
             <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
         </repository>
         <repository>
-            <id>hypepvp</id>
-            <url>http://75.176.38.251:8081/repository/hypepvp/</url>
+            <id>maven-central</id>
+            <url>http://75.176.38.251:8081/repository/maven-central/</url>
         </repository>
     </repositories>
 
     <dependencies>
-        <!-- I REALLY want to just use the spiogt depend but it dont work :( -->
+
         <!--Spigot API-->
         <dependency>
             <groupId>org.spigotmc</groupId>
@@ -54,38 +54,26 @@
             <groupId>com.zaxxer</groupId>
             <artifactId>HikariCP</artifactId>
             <version>3.2.0</version>
+            <scope>provided</scope>
         </dependency>
 
+        <!-- Plugin cores -->
+        <dependency>
+            <groupId>codes.matthewp.desertedcore</groupId>
+            <artifactId>DesertedCore</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+            <scope>provided</scope>
+        </dependency>
     </dependencies>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-shade-plugin</artifactId>
-                <version>2.3</version>
-                <configuration>
-                </configuration>
-                <executions>
-                    <execution>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>shade</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
-    </build>
 
     <distributionManagement>
         <snapshotRepository>
-            <id>hypepvp-snapshot</id>
-            <url>http://75.176.38.251:8081/repository/hypepvp-snapshot/</url>
+            <id>maven-snapshots</id>
+            <url>http://75.176.38.251:8081/repository/maven-snapshots/</url>
         </snapshotRepository>
         <repository>
-            <id>hypepvp-release</id>
-            <url>http://75.176.38.251:8081/repository/hypepvp-release/</url>
+            <id>maven-releases</id>
+            <url>http://75.176.38.251:8081/repository/maven-releases/</url>
         </repository>
     </distributionManagement>
 </project>
