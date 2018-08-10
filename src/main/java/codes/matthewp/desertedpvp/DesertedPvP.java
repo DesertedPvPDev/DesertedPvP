@@ -18,7 +18,7 @@ import codes.matthewp.desertedpvp.event.player.*;
 import codes.matthewp.desertedpvp.event.world.DropEvent;
 import codes.matthewp.desertedpvp.event.world.TransEntityEvent;
 import codes.matthewp.desertedpvp.file.FileUtil;
-import codes.matthewp.desertedpvp.placeholder.CoinsPlaceholder;
+import codes.matthewp.desertedpvp.placeholder.PvPPlaceholders;
 import codes.matthewp.desertedpvp.user.UserManager;
 import org.bukkit.Bukkit;
 import org.bukkit.event.Listener;
@@ -63,7 +63,17 @@ public class DesertedPvP extends JavaPlugin {
 
         if (Bukkit.getPluginManager().isPluginEnabled("PlaceholderAPI")) {
             System.out.println("Found placeholder API. Will attempt to hook.");
-            new CoinsPlaceholder().register();
+            new PvPPlaceholders().register();
+//            PlaceholderAPI.registerPlaceholder(this, "pcoins", new PlaceholderReplacer() {
+//                @Override
+//                public String onPlaceholderReplace(PlaceholderReplaceEvent placeholderReplaceEvent) {
+//                    if(placeholderReplaceEvent.isOnline()) {
+//                        User user = getUserManager().getUser(placeholderReplaceEvent.getPlayer());
+//                        return String.valueOf(user);
+//                    }
+//                    return "ERROR";
+//                }
+//            });
         }
     }
 
