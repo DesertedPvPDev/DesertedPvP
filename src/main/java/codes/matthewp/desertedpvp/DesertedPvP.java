@@ -64,24 +64,14 @@ public class DesertedPvP extends JavaPlugin {
         if (Bukkit.getPluginManager().isPluginEnabled("PlaceholderAPI")) {
             System.out.println("Found placeholder API. Will attempt to hook.");
             new PvPPlaceholders().register();
-//            PlaceholderAPI.registerPlaceholder(this, "pcoins", new PlaceholderReplacer() {
-//                @Override
-//                public String onPlaceholderReplace(PlaceholderReplaceEvent placeholderReplaceEvent) {
-//                    if(placeholderReplaceEvent.isOnline()) {
-//                        User user = getUserManager().getUser(placeholderReplaceEvent.getPlayer());
-//                        return String.valueOf(user);
-//                    }
-//                    return "ERROR";
-//                }
-//            });
         }
     }
 
     @Override
     public void onDisable() {
-        instance = null;
         user.saveUserCoins();
         core.getDB().disconnect();
+        instance = null;
     }
 
     public FileUtil getFileUtil() {

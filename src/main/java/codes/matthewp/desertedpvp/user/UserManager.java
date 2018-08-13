@@ -1,6 +1,7 @@
 package codes.matthewp.desertedpvp.user;
 
 import codes.matthewp.desertedpvp.DesertedPvP;
+import org.apache.commons.lang3.Validate;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitScheduler;
@@ -90,6 +91,7 @@ public class UserManager {
      */
     public void saveUserCoins() {
         if (!playerUserMap.isEmpty()) {
+            Validate.notNull(DesertedPvP.getInstace(), "PVP NULL");
             DesertedPvP.getInstace().getCoinDataAccessor().updateUsersCoins(playerUserMap.values());
         }
     }

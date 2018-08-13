@@ -40,3 +40,6 @@ gotCoins: '&b%AMOUNT% coins have been added to your account.'
 payInvalidUsage: '&cInvalid command. Correct usage: /pay <player> <amount>'
 cantPayThatMuch: '&cCant pay what you dont have ;/'
 minusCoins: '&b%AMOUNT% coins have been subtracted from your account.'
+
+# Kit buying
+noHaveKit: '&cYou havent unlocked this kit!'

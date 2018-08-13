@@ -57,18 +57,19 @@ public class KitManager {
 
     public static List<IKit> getPlayerKits(Player p) {
         checkNull();
-        List<IKit> pKits = new ArrayList<>();
-
-        if (p.isOp() || p.hasPermission("desertedpvp.kit.*")) {
-            pKits = kits;
-        } else {
-            for (IKit kit : kits) {
-                if (p.hasPermission(kit.getPerm())) {
-                    pKits.add(kit);
-                }
-            }
-        }
-        return pKits;
+        return kits;
+//        List<IKit> pKits = new ArrayList<>();
+//
+//        if (p.isOp() || p.hasPermission("desertedpvp.kit.*")) {
+//            pKits = kits;
+//        } else {
+//            for (IKit kit : kits) {
+//                if (p.hasPermission(kit.getPerm())) {
+//                    pKits.add(kit);
+//                }
+//            }
+//        }
+//        return pKits;
     }
 
 

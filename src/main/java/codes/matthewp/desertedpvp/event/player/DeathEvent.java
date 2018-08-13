@@ -28,6 +28,7 @@ public class DeathEvent implements Listener {
                 pvp.getUserManager().getUser(killer).addKS();
                 if (pvp.getUserManager().getUser(killer).getCurrentKit() != null) {
                     pvp.getUserManager().getUser(killer).getCurrentKit().gotKill(killer, e.getEntity());
+                    pvp.getUserManager().getUser(killer).addCoins(2);
                 }
             }
         }

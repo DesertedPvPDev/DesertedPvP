@@ -27,10 +27,16 @@ public class InventoryClickEvent implements Listener {
         if (strip(event.getInventory().getName()).equals(KitSelector.getGuiName())) {
             event.setCancelled(true);
             IKit kit = KitManager.getKitFromMat(event.getCurrentItem().getType());
-            if (kit != null && Bukkit.getPlayer(event.getWhoClicked().getUniqueId()) != null) {
-                kit.giveKit(Bukkit.getPlayer(event.getWhoClicked().getUniqueId()));
-                User user = pvp.getUserManager().getUser(Bukkit.getPlayer(event.getWhoClicked().getUniqueId()));
-                user.setKit(kit);
+            if (kit != null) {
+                if (Bukkit.getPlayer(event.getWhoClicked().getUniqueId()).hasPermission(kit.getPerm())) {
+                    if (Bukkit.getPlayer(event.getWhoClicked().getUniqueId()) != null) {
+                        kit.giveKit(Bukkit.getPlayer(event.getWhoClicked().getUniqueId()));
+                        User user = pvp.getUserManager().getUser(Bukkit.getPlayer(event.getWhoClicked().getUniqueId()));
+                        user.setKit(kit);
+                    }
+                } else {
+                    Bukkit.getPlayer(event.getWhoClicked().getUniqueId()).sendMessage(Messages.getMessage("noHaveKit"));
+                }
             }
             Bukkit.getPlayer(event.getWhoClicked().getUniqueId()).closeInventory();
         } else if (strip(event.getInventory().getName()).equals(KillStreaks.getGuiName())) {
