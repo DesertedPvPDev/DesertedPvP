@@ -1,0 +1,11 @@
+################
+# Rankup file  #
+################
+
+path:
+  0:
+    group: 'private'
+    cost: 0
+  1:
+    group: 'beast'
+    cost: 100

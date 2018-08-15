@@ -4,7 +4,6 @@ import codes.matthewp.desertedpvp.DesertedPvP;
 import org.apache.commons.lang3.Validate;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
-import org.bukkit.scheduler.BukkitScheduler;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -75,14 +74,7 @@ public class UserManager {
      */
     public User genUser(UUID uuid) {
         User user = new User(uuid);
-        BukkitScheduler scheduler = Bukkit.getServer().getScheduler();
-        scheduler.scheduleSyncDelayedTask(DesertedPvP.getInstace(), new Runnable() {
-            @Override
-            public void run() {
-                getUser(uuid).setCoins(DesertedPvP.getInstace().getCoinDataAccessor().getUsersCoins(user));
-            }
-        }, 20L);
-
+        user = DesertedPvP.getInstace().getCoinDataAccessor().fetchUserCoins(user);
         return user;
     }
 

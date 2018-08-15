@@ -43,3 +43,8 @@ minusCoins: '&b%AMOUNT% coins have been subtracted from your account.'
 
 # Kit buying
 noHaveKit: '&cYou havent unlocked this kit!'
+
+# Rank up
+noRankUp: '&cYou may not rank up!'
+noMoney: '&cYou cannot afford that rank.'
+youHaveRanked: '&6You have ranked up!'
