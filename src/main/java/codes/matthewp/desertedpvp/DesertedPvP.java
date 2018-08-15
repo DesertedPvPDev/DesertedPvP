@@ -75,7 +75,7 @@ public class DesertedPvP extends JavaPlugin {
                 new EntityDeath(),
                 new EntitySpawn());
         core = DesertedCore.getCore();
-        coinsDataAccess = new CoinsDataAccess(getDB());
+        coinsDataAccess = new CoinsDataAccess(getDB(), this);
         instance = this;
 
         if (Bukkit.getPluginManager().isPluginEnabled("PlaceholderAPI")) {
