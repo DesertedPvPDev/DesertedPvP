@@ -9,6 +9,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
+import org.bukkit.inventory.ItemStack;
 
 public class InteractEvent implements Listener {
 
@@ -37,6 +38,15 @@ public class InteractEvent implements Listener {
                 }
             }
         } else if (e.getAction() == Action.RIGHT_CLICK_BLOCK || e.getAction() == Action.RIGHT_CLICK_AIR) {
+            if (e.getPlayer().getItemInHand().getType() == Material.COOKED_BEEF) {
+                e.getPlayer().setHealth(e.getPlayer().getHealth() + 4.0);
+                if (e.getPlayer().getItemInHand().getAmount() > 1) {
+                    int amount = e.getPlayer().getItemInHand().getAmount() - 1;
+                    e.getPlayer().setItemInHand(new ItemStack(Material.COOKED_BEEF, amount));
+                } else {
+                    e.getPlayer().setItemInHand(new ItemStack(Material.AIR));
+                }
+            }
             if (pvp.getUserManager().getUser(e.getPlayer()).getCurrentKit() != null) {
                 pvp.getUserManager().getUser(e.getPlayer()).getCurrentKit().hasRightClicked(pvp.getUserManager().getUser(e.getPlayer()), e.getPlayer().getItemInHand());
             }
