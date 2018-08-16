@@ -21,6 +21,7 @@ public class Nuke extends IKillStreak {
         message = config.getString("message");
         sound = Sound.valueOf(config.getString("sound"));
         setCost(config.getInt("cost"));
+        setPerm(config.getString("perm"));
     }
 
     @Override

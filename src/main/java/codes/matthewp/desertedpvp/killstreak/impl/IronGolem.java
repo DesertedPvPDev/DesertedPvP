@@ -26,5 +26,6 @@ public class IronGolem extends IKillStreak {
         loadIcon(config.getConfigurationSection("icon"));
         name = color(config.getString("entityName"));
         setCost(config.getInt("cost"));
+        setPerm(config.getString("perm"));
     }
 }

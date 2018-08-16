@@ -19,6 +19,7 @@ public class SupplyCrate extends IKillStreak {
     public void load(ConfigurationSection config) {
         loadIcon(config.getConfigurationSection("icon"));
         setCost(config.getInt("cost"));
+        setPerm(config.getString("perm"));
     }
 
     @Override

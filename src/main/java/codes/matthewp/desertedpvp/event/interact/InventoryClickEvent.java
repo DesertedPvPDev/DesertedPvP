@@ -45,8 +45,12 @@ public class InventoryClickEvent implements Listener {
 
             User user = pvp.getUserManager().getUser(event.getWhoClicked().getUniqueId());
             if (user.getCurrentKS() >= streak.getCost()) {
-                user.subtractKS(streak.getCost());
-                streak.execute(Bukkit.getPlayer(event.getWhoClicked().getName()));
+                if (Bukkit.getPlayer(event.getWhoClicked().getUniqueId()).hasPermission(streak.getPerm())) {
+                    user.subtractKS(streak.getCost());
+                    streak.execute(Bukkit.getPlayer(event.getWhoClicked().getName()));
+                } else {
+                    Bukkit.getPlayer(event.getWhoClicked().getUniqueId()).sendMessage(Messages.getMessage("noPermForKS"));
+                }
                 Bukkit.getPlayer(event.getWhoClicked().getUniqueId()).closeInventory();
             } else {
                 int neeeded;

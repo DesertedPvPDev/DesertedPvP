@@ -21,6 +21,7 @@ public class AttackDogs extends IKillStreak {
         dogCount = config.getInt("dogCount");
         dogName = config.getString("dogName");
         setCost(config.getInt("cost"));
+        setPerm(config.getString("perm"));
     }
 
     @Override

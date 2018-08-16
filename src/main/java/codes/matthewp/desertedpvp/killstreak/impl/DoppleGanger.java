@@ -1,7 +1,7 @@
 package codes.matthewp.desertedpvp.killstreak.impl;
 
-import codes.matthewp.desertedpvp.entity.impl.EntityDoppelGanger;
 import codes.matthewp.desertedpvp.entity.EntityTypes;
+import codes.matthewp.desertedpvp.entity.impl.EntityDoppelGanger;
 import codes.matthewp.desertedpvp.killstreak.IKillStreak;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.entity.Player;
@@ -26,5 +26,6 @@ public class DoppleGanger extends IKillStreak {
         loadIcon(config.getConfigurationSection("icon"));
         name = color(config.getString("entityName"));
         setCost(config.getInt("cost"));
+        setPerm(config.getString("perm"));
     }
 }

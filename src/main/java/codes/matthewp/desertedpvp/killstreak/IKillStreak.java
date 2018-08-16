@@ -15,6 +15,7 @@ public class IKillStreak {
     private String interID;
     private ItemStack icon;
     private int cost;
+    private String perm;
 
     public IKillStreak(String interID) {
         this.interID = interID;
@@ -57,5 +58,13 @@ public class IKillStreak {
 
     public String color(String str) {
         return ChatColor.translateAlternateColorCodes('&', str);
+    }
+
+    public String getPerm() {
+        return perm;
+    }
+
+    public void setPerm(String perm) {
+        this.perm = perm;
     }
 }

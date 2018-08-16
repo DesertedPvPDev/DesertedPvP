@@ -28,6 +28,7 @@ resetUserKS: '&bYou have reset this players kill streak'
 addKSUsage: '&cInvalid command. Correct usage: /addks <player> (amount)'
 addedKS: '&bYou have added %AMOUNT% to this players kill streak'
 notYourDrop: '&cThat is not your supply drop!'
+noPermForKS: '&cYou do not have permission for that kill streak!'
 
 # Sniper kill
 sniperKill: '&6%SNIPER% has &cSNIPED &6%KILLED%!'
