@@ -22,7 +22,7 @@ public enum EntityTypes {
         addToMaps(custom, name, id);
     }
 
-    public static void spawnEntity(Entity entity, Location loc, String name) {
+    public static Entity spawnEntity(Entity entity, Location loc, String name) {
         entity.setLocation(loc.getX(), loc.getY(), loc.getZ(), loc.getYaw(), loc.getPitch());
 
         if(entity.getBukkitEntity().getType() == EntityType.PIG_ZOMBIE) {
@@ -41,8 +41,8 @@ public enum EntityTypes {
 
         entity.setCustomName(name);
         entity.setCustomNameVisible(true);
-
         ((CraftWorld) loc.getWorld()).getHandle().addEntity(entity);
+        return entity;
     }
 
     @SuppressWarnings("unchecked")
