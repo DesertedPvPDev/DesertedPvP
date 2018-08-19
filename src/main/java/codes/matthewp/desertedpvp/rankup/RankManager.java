@@ -27,6 +27,7 @@ public class RankManager {
             Rank rank = new Rank(i,
                     config.getString("path." + String.valueOf(i) + ".group"),
                     config.getInt("path." + String.valueOf(i) + ".cost"));
+            ranks.add(rank);
         }
     }
 
@@ -37,9 +38,9 @@ public class RankManager {
     public Rank getNextRank(Player p) {
 
         List<Rank> playerRanks = new ArrayList<>();
+        String[] playerGroups = pvp.getPerms().getPlayerGroups(p);
 
         for (Rank rank : ranks) {
-            String[] playerGroups = pvp.getPerms().getPlayerGroups(p);
             for (int i = 0; i < playerGroups.length; i++) {
                 if (rank.getGroup().equalsIgnoreCase(playerGroups[i])) {
                     playerRanks.add(rank);
