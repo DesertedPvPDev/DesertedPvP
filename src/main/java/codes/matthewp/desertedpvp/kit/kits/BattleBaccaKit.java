@@ -38,7 +38,6 @@ public class BattleBaccaKit extends IKit {
             if (stack != null) {
                 if (stack.getType() == Material.DIAMOND_AXE) {
                     for (Enchantment enchant : stack.getEnchantments().keySet()) {
-                        System.out.println(enchant.getName());
                         if (enchant.getName().equalsIgnoreCase("DAMAGE_ALL")) {
                             int nextLevel = stack.getEnchantments().get(enchant) + 1;
                             if (nextLevel <= 4) {
