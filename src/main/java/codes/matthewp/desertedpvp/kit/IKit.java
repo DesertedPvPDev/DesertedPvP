@@ -82,4 +82,8 @@ public class IKit {
     public List<String> colorList(List<String> list) {
         return list.stream().map(s -> ChatColor.translateAlternateColorCodes('&', s)).collect(Collectors.toList());
     }
+
+    public String stripColor(String str) {
+        return ChatColor.stripColor(str);
+    }
 }

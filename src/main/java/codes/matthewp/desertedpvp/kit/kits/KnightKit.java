@@ -24,6 +24,7 @@ public class KnightKit extends IKit {
         p.getInventory().setBoots(new ItemStack(Material.IRON_BOOTS));
 
         p.getInventory().addItem(new ItemStack(Material.IRON_SWORD));
+
         KillStreaks.giveKillStreaksItem(p);
         p.sendMessage(Messages.getMessage("youHaveRecievedKit").replaceAll("%KIT%", stripColor(getName())));
     }

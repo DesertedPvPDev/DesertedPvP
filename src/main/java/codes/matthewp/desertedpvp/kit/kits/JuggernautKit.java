@@ -27,6 +27,7 @@ public class JuggernautKit extends IKit {
 
         p.getInventory().addItem(new ItemStack(Material.STONE_SWORD));
         p.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, Integer.MAX_VALUE, 2));
+
         KillStreaks.giveKillStreaksItem(p);
         p.sendMessage(Messages.getMessage("youHaveRecievedKit").replaceAll("%KIT%", stripColor(getName())));
     }

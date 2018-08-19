@@ -1,5 +1,7 @@
 package codes.matthewp.desertedpvp.kit.kits;
 
+import codes.matthewp.desertedpvp.data.Messages;
+import codes.matthewp.desertedpvp.killstreak.KillStreaks;
 import codes.matthewp.desertedpvp.kit.IKit;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
@@ -32,5 +34,8 @@ public class PorcupineKit extends IKit {
         p.getInventory().setBoots(boots);
 
         p.getInventory().addItem(new ItemStack(Material.IRON_SWORD));
+
+        p.sendMessage(Messages.getMessage("youHaveRecievedKit").replaceAll("%KIT%", stripColor(getName())));
+        KillStreaks.giveKillStreaksItem(p);
     }
 }

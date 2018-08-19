@@ -40,9 +40,9 @@ public class ManiacKit extends IKit {
         ItemStack sword = new ItemStack(Material.IRON_AXE);
         sword.addEnchantment(Enchantment.DAMAGE_ALL, 2);
         p.getInventory().addItem(sword);
-        KillStreaks.giveKillStreaksItem(p);
         p.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, Integer.MAX_VALUE, 1));
 
+        KillStreaks.giveKillStreaksItem(p);
         p.sendMessage(Messages.getMessage("youHaveRecievedKit").replaceAll("%KIT%", stripColor(getName())));
     }
 
