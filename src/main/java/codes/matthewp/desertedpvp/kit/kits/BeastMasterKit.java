@@ -1,5 +1,7 @@
 package codes.matthewp.desertedpvp.kit.kits;
 
+import codes.matthewp.desertedpvp.data.Messages;
+import codes.matthewp.desertedpvp.killstreak.KillStreaks;
 import codes.matthewp.desertedpvp.kit.IKit;
 import codes.matthewp.desertedpvp.user.User;
 import org.bukkit.Bukkit;
@@ -32,6 +34,8 @@ public class BeastMasterKit extends IKit {
 
         p.getInventory().addItem(new ItemStack(Material.IRON_SWORD));
         p.getInventory().addItem(new ItemStack(Material.COOKED_BEEF));
+        p.sendMessage(Messages.getMessage("youHaveRecievedKit").replaceAll("%KIT%", stripColor(getName())));
+        KillStreaks.giveKillStreaksItem(p);
     }
 
     @Override

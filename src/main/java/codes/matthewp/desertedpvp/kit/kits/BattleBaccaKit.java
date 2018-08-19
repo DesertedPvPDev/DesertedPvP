@@ -1,5 +1,7 @@
 package codes.matthewp.desertedpvp.kit.kits;
 
+import codes.matthewp.desertedpvp.data.Messages;
+import codes.matthewp.desertedpvp.killstreak.KillStreaks;
 import codes.matthewp.desertedpvp.kit.IKit;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
@@ -25,6 +27,9 @@ public class BattleBaccaKit extends IKit {
         axe.addEnchantment(Enchantment.DAMAGE_ALL, 1);
         p.getInventory().addItem(axe);
         p.getInventory().addItem(new ItemStack(Material.COOKED_BEEF, 3));
+
+        p.sendMessage(Messages.getMessage("youHaveRecievedKit").replaceAll("%KIT%", stripColor(getName())));
+        KillStreaks.giveKillStreaksItem(p);
     }
 
     @Override

@@ -41,6 +41,7 @@ public class AssassinKit extends IKit {
 
         ItemStack sword = new ItemStack(Material.IRON_SWORD);
         p.getInventory().addItem(sword);
+
         KillStreaks.giveKillStreaksItem(p);
         p.sendMessage(Messages.getMessage("youHaveRecievedKit").replaceAll("%KIT%", stripColor(getName())));
     }
