@@ -35,6 +35,10 @@ public class PvPPlaceholders extends PlaceholderExpansion {
         if (s.equalsIgnoreCase("coins")) {
             return String.valueOf(DesertedPvP.getInstace().getUserManager().getUser(player).getCoins());
         }
+
+        if (s.equalsIgnoreCase("killstreak")) {
+            return String.valueOf(DesertedPvP.getInstace().getUserManager().getUser(player).getCurrentKS());
+        }
         return null;
     }
 }

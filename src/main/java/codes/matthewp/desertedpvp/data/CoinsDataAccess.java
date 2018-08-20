@@ -37,25 +37,20 @@ public class CoinsDataAccess extends DatabaseAccess {
     }
 
     public void updateUsersCoins(Collection<User> users) {
-        Bukkit.getScheduler().runTaskAsynchronously(pvp, new Runnable() {
-            String query = "UPDATE `user_coins` SET `amount` = ? WHERE `user_coins`.`uuid` = ?";
+        String query = "UPDATE `user_coins` SET `amount` = ? WHERE `user_coins`.`uuid` = ?";
 
-            @Override
-            public void run() {
-                try (Connection conn = db.getConnection(ins);
-                     PreparedStatement queryStmt = conn.prepareStatement(query)) {
-                    for (User user : users) {
-                        queryStmt.setInt(1, user.getCoins());
-                        queryStmt.setString(2, user.getPlayerUUID().toString());
-                        queryStmt.addBatch();
-                    }
-
-                    queryStmt.executeBatch();
-                } catch (SQLException ex) {
-                    ex.printStackTrace();
-                }
+        try (Connection conn = db.getConnection(ins);
+             PreparedStatement queryStmt = conn.prepareStatement(query)) {
+            for (User user : users) {
+                queryStmt.setInt(1, user.getCoins());
+                queryStmt.setString(2, user.getPlayerUUID().toString());
+                queryStmt.addBatch();
             }
-        });
+
+            queryStmt.executeBatch();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
     }
 
     public void insertUserToDatabase(User user) {
