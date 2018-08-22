@@ -32,7 +32,7 @@ public class RankupCmd implements CommandExecutor {
                             commandSender.sendMessage(Messages.getMessage("youHaveRanked"));
                             return true;
                         } else {
-                            commandSender.sendMessage(Messages.getMessage("noMoney"));
+                            commandSender.sendMessage(Messages.getMessage("noMoney").replaceAll("%COINS%", String.valueOf(rank.getCost() - user.getCoins())));
                             return false;
                         }
                     } else {

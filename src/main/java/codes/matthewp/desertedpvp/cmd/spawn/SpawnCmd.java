@@ -1,5 +1,6 @@
 package codes.matthewp.desertedpvp.cmd.spawn;
 
+import codes.matthewp.desertedpvp.data.CombatTag;
 import codes.matthewp.desertedpvp.data.Messages;
 import codes.matthewp.desertedpvp.data.SpawnData;
 import org.bukkit.Bukkit;
@@ -16,9 +17,13 @@ public class SpawnCmd implements CommandExecutor {
             if (commandSender instanceof Player) {
                 Player p = (Player) commandSender;
                 if (p.hasPermission("desertedpvp.spawn")) {
-                    p.teleport(new Location(Bukkit.getWorld("world"),
-                            SpawnData.getX(), SpawnData.getY(), SpawnData.getZ(), SpawnData.getYaw(), SpawnData.getPitch()));
-                    p.sendMessage(Messages.getMessage("teleToSpawn"));
+                    if (!CombatTag.isTagged(p)) {
+                        p.teleport(new Location(Bukkit.getWorld("world"),
+                                SpawnData.getX(), SpawnData.getY(), SpawnData.getZ(), SpawnData.getYaw(), SpawnData.getPitch()));
+                        p.sendMessage(Messages.getMessage("teleToSpawn"));
+                    } else {
+                        p.sendMessage(Messages.getMessage("cmdDisabledTag"));
+                    }
                     return true;
                 } else {
                     commandSender.sendMessage(Messages.getMessage("noPerm"));

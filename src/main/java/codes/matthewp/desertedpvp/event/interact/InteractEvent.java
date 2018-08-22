@@ -46,7 +46,6 @@ public class InteractEvent implements Listener {
                 } else {
                     e.getPlayer().getInventory().remove(e.getPlayer().getItemInHand());
                 }
-                e.getPlayer().updateInventory();
             }
             if (pvp.getUserManager().getUser(e.getPlayer()).getCurrentKit() != null) {
                 pvp.getUserManager().getUser(e.getPlayer()).getCurrentKit().hasRightClicked(pvp.getUserManager().getUser(e.getPlayer()), e.getPlayer().getItemInHand());

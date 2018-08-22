@@ -47,5 +47,10 @@ noHaveKit: '&cYou havent unlocked this kit!'
 
 # Rank up
 noRankUp: '&cYou may not rank up!'
-noMoney: '&cYou cannot afford that rank.'
+noMoney: '&cYou cannot afford that rank. &6You need %COINS% more coins to rankup.'
 youHaveRanked: '&6You have ranked up!'
+
+# Combat tag
+cmdDisabledTag: '&cYou cannot use this command with combat tagged.'
+nowCombatTagged: '&cYou are now combat tagged.'
+noLongerTagged: '&6You are no longer combat tagged.'

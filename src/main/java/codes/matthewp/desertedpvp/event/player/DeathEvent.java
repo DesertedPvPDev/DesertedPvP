@@ -1,6 +1,7 @@
 package codes.matthewp.desertedpvp.event.player;
 
 import codes.matthewp.desertedpvp.DesertedPvP;
+import codes.matthewp.desertedpvp.data.CombatTag;
 import codes.matthewp.desertedpvp.user.User;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
@@ -43,10 +44,13 @@ public class DeathEvent implements Listener {
         if (e.getEntity().getKiller() != null) {
             if (e.getEntity().getKiller() instanceof Player) {
                 Player killer = e.getEntity().getKiller();
-                pvp.getUserManager().getUser(killer).addKS();
-                if (pvp.getUserManager().getUser(killer).getCurrentKit() != null) {
-                    pvp.getUserManager().getUser(killer).getCurrentKit().gotKill(killer, e.getEntity());
-                    pvp.getUserManager().getUser(killer).addCoins(2);
+                if (!killer.getName().equals(e.getEntity().getName())) {
+                    pvp.getUserManager().getUser(killer).addKS();
+                    CombatTag.removeTag(e.getEntity());
+                    if (pvp.getUserManager().getUser(killer).getCurrentKit() != null) {
+                        pvp.getUserManager().getUser(killer).getCurrentKit().gotKill(killer, e.getEntity());
+                        pvp.getUserManager().getUser(killer).addCoins(2);
+                    }
                 }
             }
         }
