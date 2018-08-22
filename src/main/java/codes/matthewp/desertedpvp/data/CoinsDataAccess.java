@@ -10,17 +10,36 @@ import org.bukkit.scheduler.BukkitScheduler;
 import java.sql.*;
 import java.util.Collection;
 
+/**
+ * DAO for user coins
+ */
 public class CoinsDataAccess extends DatabaseAccess {
 
+    /**
+     * Self ins
+     */
     private CoinsDataAccess ins;
+
+    /**
+     * Instance of main class
+     */
     private DesertedPvP pvp;
 
+    /**
+     * Init a new DAO
+     *
+     * @param db  Database to used
+     * @param pvp Main plugin
+     */
     public CoinsDataAccess(Database db, DesertedPvP pvp) {
         super(db);
         this.pvp = pvp;
         ins = this;
     }
 
+    /**
+     * Load the tables
+     */
     @Override
     public void loadTables() {
         setHasLoaded(true);
@@ -36,6 +55,10 @@ public class CoinsDataAccess extends DatabaseAccess {
         }
     }
 
+    /**
+     * Update all user coins
+     * @param users Users coins to save
+     */
     public void updateUsersCoins(Collection<User> users) {
         String query = "UPDATE `user_coins` SET `amount` = ? WHERE `user_coins`.`uuid` = ?";
 
@@ -53,6 +76,10 @@ public class CoinsDataAccess extends DatabaseAccess {
         }
     }
 
+    /**
+     * Insert a user into a database
+     * @param user User user to insert
+     */
     public void insertUserToDatabase(User user) {
         BukkitScheduler scheduler = Bukkit.getScheduler();
         scheduler.runTaskAsynchronously(DesertedPvP.getInstace(), new Runnable() {
@@ -72,6 +99,11 @@ public class CoinsDataAccess extends DatabaseAccess {
         });
     }
 
+    /**
+     * Fetch a users coins from the database
+     * @param user User user to fetch
+     * @return User user with coins set
+     */
     public User fetchUserCoins(User user) {
         user.setCoins(0);
         String sqlQuery = "SELECT * FROM `user_coins` WHERE uuid = ?";
