@@ -73,7 +73,8 @@ public class DesertedPvP extends JavaPlugin {
                 new DropEvent(this),
                 new TransEntityEvent(),
                 new EntityDeath(),
-                new EntitySpawn());
+                new EntitySpawn(),
+                new InventoryClose(this));
         core = DesertedCore.getCore();
         coinsDataAccess = new CoinsDataAccess(getDB(), this);
         instance = this;

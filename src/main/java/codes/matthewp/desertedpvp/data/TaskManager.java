@@ -20,8 +20,8 @@ public class TaskManager {
 
     public static void removeTask(String id) {
         checkNull();
-        tasks.remove(id);
         Bukkit.getScheduler().cancelTask(tasks.get(id));
+        tasks.remove(id);
     }
 
     private static void checkNull() {

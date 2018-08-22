@@ -32,6 +32,7 @@ public class TransEntityEvent implements Listener {
                     e.getBlock().setType(Material.CHEST);
                     List<MetadataValue> blockMeta = fb.getMetadata("isSupplyCrate");
                     e.getBlock().setMetadata("isSupplyCrate", new FixedMetadataValue(DesertedPvP.getInstace(), blockMeta.get(0).asString()));
+                    
                     Chest chest = (Chest) e.getBlock().getState();
                     Inventory inv = chest.getBlockInventory();
                     SupplyLoot.generateLoot(inv);
