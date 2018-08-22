@@ -1,6 +1,7 @@
 package codes.matthewp.desertedpvp.event.player;
 
 import codes.matthewp.desertedpvp.DesertedPvP;
+import codes.matthewp.desertedpvp.data.BlockTracker;
 import org.bukkit.block.Chest;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -20,9 +21,12 @@ public class InventoryClose implements Listener {
     public void onClose(InventoryCloseEvent e) {
         if (e.getInventory().getType() == InventoryType.CHEST) {
             if (e.getPlayer() instanceof Player) {
-                Player p = (Player) e.getPlayer();
                 Chest chest = (Chest) e.getInventory().getHolder();
-                p.sendMessage("X: " + chest.getX() + " Y: " + chest.getY() + " Z: " + chest.getZ());
+                if (chest.hasMetadata("isSupplyCrate")) {
+                    if (BlockTracker.isSetToBeRemoved(chest.getLocation())) {
+                        BlockTracker.removeBlock(chest.getBlock());
+                    }
+                }
             }
         }
     }

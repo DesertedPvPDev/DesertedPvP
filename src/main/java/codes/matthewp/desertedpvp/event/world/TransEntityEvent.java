@@ -1,6 +1,7 @@
 package codes.matthewp.desertedpvp.event.world;
 
 import codes.matthewp.desertedpvp.DesertedPvP;
+import codes.matthewp.desertedpvp.data.BlockTracker;
 import codes.matthewp.desertedpvp.loot.SupplyLoot;
 import org.bukkit.Material;
 import org.bukkit.Sound;
@@ -32,7 +33,7 @@ public class TransEntityEvent implements Listener {
                     e.getBlock().setType(Material.CHEST);
                     List<MetadataValue> blockMeta = fb.getMetadata("isSupplyCrate");
                     e.getBlock().setMetadata("isSupplyCrate", new FixedMetadataValue(DesertedPvP.getInstace(), blockMeta.get(0).asString()));
-                    
+                    BlockTracker.addBlock(e.getBlock().getLocation());
                     Chest chest = (Chest) e.getBlock().getState();
                     Inventory inv = chest.getBlockInventory();
                     SupplyLoot.generateLoot(inv);

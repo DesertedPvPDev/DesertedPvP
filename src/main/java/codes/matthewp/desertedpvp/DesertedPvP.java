@@ -10,6 +10,7 @@ import codes.matthewp.desertedpvp.cmd.player.PayCmd;
 import codes.matthewp.desertedpvp.cmd.player.RankupCmd;
 import codes.matthewp.desertedpvp.cmd.spawn.SetSpawnCmd;
 import codes.matthewp.desertedpvp.cmd.spawn.SpawnCmd;
+import codes.matthewp.desertedpvp.data.BlockTracker;
 import codes.matthewp.desertedpvp.data.CoinsDataAccess;
 import codes.matthewp.desertedpvp.event.entity.EntityDeath;
 import codes.matthewp.desertedpvp.event.entity.EntitySpawn;
@@ -88,6 +89,7 @@ public class DesertedPvP extends JavaPlugin {
     @Override
     public void onDisable() {
         user.saveUserCoins();
+        BlockTracker.removeBlocks();
         core.getDB().disconnect();
         instance = null;
     }
