@@ -7,8 +7,8 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class IKillStreak {
 
@@ -33,8 +33,7 @@ public class IKillStreak {
         ItemStack stack = new ItemStack(Material.getMaterial(config.getString("mat")));
         ItemMeta meta = stack.getItemMeta();
         meta.setDisplayName(color(config.getString("name")));
-        List<String> lore = new ArrayList<>();
-        lore.add(color(config.getString("lore")));
+        List<String> lore = colorList(config.getStringList("lore"));
         meta.setLore(lore);
         stack.setItemMeta(meta);
         icon = stack;
@@ -58,6 +57,10 @@ public class IKillStreak {
 
     public String color(String str) {
         return ChatColor.translateAlternateColorCodes('&', str);
+    }
+
+    public List<String> colorList(List<String> strings) {
+        return strings.stream().map(s -> ChatColor.translateAlternateColorCodes('&', s)).collect(Collectors.toList());
     }
 
     public String getPerm() {

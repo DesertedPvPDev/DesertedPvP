@@ -20,7 +20,8 @@ killStreaks:
     icon:
       name: '&cAttack dogs'
       mat: 'BONE'
-      lore: '&cLaunch a swarm of dogs to attack your enemies'
+      lore:
+      - '&cLaunch a swarm of dogs to attack your enemies'
     dogCount: 4
     dogName: '&c%PLAYER%s Hound'
     perm: 'ks.attack_dog'
@@ -29,14 +30,16 @@ killStreaks:
     icon:
       name: '&2Supply drop'
       mat: 'CHEST'
-      lore: '&2Low on supplies? Watch your head!'
+      lore:
+      - '&2Low on supplies? Watch your head!'
     cost: 10
     perm: 'ks.supply_crate'
   nuke:
     icon:
       name: '&4Nuke'
       mat: 'TNT'
-      lore: '&4Nuke incoming!'
+      lore:
+      - '&4Nuke incoming!'
     cost: 25
     sound: 'LEVEL_UP'
     message: '&2Called in nuke!'
@@ -45,7 +48,8 @@ killStreaks:
     icon:
       name: '&6Doppleganger'
       mat: 'TORCH'
-      lore: '&6We all have one somewhere...'
+      lore:
+      - '&6We all have one somewhere...'
     cost: 10
     entityName: "&c%PLAYER%'s DoppleGanger"
     perm: 'ks.dopple_ganger'
@@ -53,7 +57,8 @@ killStreaks:
     icon:
       name: '&2Iron Golem'
       mat: 'IRON_INGOT'
-      lore: '&2Calling in the big guns!'
+      lore:
+      - '&2Calling in the big guns!'
     entityName: "&c%PLAYER%'s Iron Golem"
     perm: 'ks.iron_boi'
     cost: 15
