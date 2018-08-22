@@ -42,15 +42,13 @@ public class DeathEvent implements Listener {
         }
 
         if (e.getEntity().getKiller() != null) {
-            if (e.getEntity().getKiller() instanceof Player) {
-                Player killer = e.getEntity().getKiller();
-                if (!killer.getName().equals(e.getEntity().getName())) {
-                    pvp.getUserManager().getUser(killer).addKS();
-                    CombatTag.removeTag(e.getEntity());
-                    if (pvp.getUserManager().getUser(killer).getCurrentKit() != null) {
-                        pvp.getUserManager().getUser(killer).getCurrentKit().gotKill(killer, e.getEntity());
-                        pvp.getUserManager().getUser(killer).addCoins(2);
-                    }
+            Player killer = e.getEntity().getKiller();
+            if (!killer.getName().equals(e.getEntity().getName())) {
+                pvp.getUserManager().getUser(killer).addKS();
+                CombatTag.removeTag(e.getEntity());
+                if (pvp.getUserManager().getUser(killer).getCurrentKit() != null) {
+                    pvp.getUserManager().getUser(killer).getCurrentKit().gotKill(killer, e.getEntity());
+                    pvp.getUserManager().getUser(killer).addCoins(2);
                 }
             }
         }
