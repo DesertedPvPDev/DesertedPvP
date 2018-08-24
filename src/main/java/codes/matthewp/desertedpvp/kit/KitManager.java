@@ -45,6 +45,7 @@ public class KitManager {
         addKit(new BeastMasterKit());
         addKit(new PorcupineKit());
         addKit(new GolemKit());
+        addKit(new NinjaKIt());
     }
 
     public static void loadKit(String key, ConfigurationSection section) {

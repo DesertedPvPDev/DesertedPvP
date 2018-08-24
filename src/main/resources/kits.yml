@@ -95,3 +95,10 @@ golem:
   icon: IRON_INGOT
   price: 0
   perm: 'desertedpvp.kit.golem'
+ninja:
+  name: '&cNinja'
+  lore:
+    - '&8Cant catch this'
+  icon: GOLD_NUGGET
+  price: 0
+  perm: 'desertedpvp.kit.ninja'
