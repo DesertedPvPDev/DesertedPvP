@@ -44,6 +44,7 @@ public class KitManager {
         addKit(new RichKit());
         addKit(new BeastMasterKit());
         addKit(new PorcupineKit());
+        addKit(new GolemKit());
     }
 
     public static void loadKit(String key, ConfigurationSection section) {
@@ -58,18 +59,6 @@ public class KitManager {
     public static List<IKit> getPlayerKits(Player p) {
         checkNull();
         return kits;
-//        List<IKit> pKits = new ArrayList<>();
-//
-//        if (p.isOp() || p.hasPermission("desertedpvp.kit.*")) {
-//            pKits = kits;
-//        } else {
-//            for (IKit kit : kits) {
-//                if (p.hasPermission(kit.getPerm())) {
-//                    pKits.add(kit);
-//                }
-//            }
-//        }
-//        return pKits;
     }
 
 

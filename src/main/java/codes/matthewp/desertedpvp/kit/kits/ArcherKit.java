@@ -3,11 +3,12 @@ package codes.matthewp.desertedpvp.kit.kits;
 import codes.matthewp.desertedpvp.data.Messages;
 import codes.matthewp.desertedpvp.killstreak.KillStreaks;
 import codes.matthewp.desertedpvp.kit.IKit;
-import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.potion.PotionEffect;
+import org.bukkit.potion.PotionEffectType;
 
 public class ArcherKit extends IKit {
 
@@ -33,17 +34,13 @@ public class ArcherKit extends IKit {
 
         ItemStack sword = new ItemStack(Material.STONE_SWORD);
         sword.addEnchantment(Enchantment.DAMAGE_ALL, 1);
-        p.getInventory().addItem(sword);
 
+        p.getInventory().addItem(sword);
         p.getInventory().addItem(new ItemStack(Material.ARROW));
+
+        p.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, Integer.MAX_VALUE, 1));
 
         p.sendMessage(Messages.getMessage("youHaveRecievedKit").replaceAll("%KIT%", stripColor(getName())));
         KillStreaks.giveKillStreaksItem(p);
-    }
-
-    public String stripColor(String str) {
-        str = ChatColor.translateAlternateColorCodes('&', str);
-        str = ChatColor.stripColor(str);
-        return str;
     }
 }

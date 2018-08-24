@@ -88,3 +88,10 @@ porkupine:
   icon: CACTUS
   price: 0
   perm: 'desertedpvp.kit.porkupine'
+golem:
+  name: '&7Golem'
+  lore:
+    - '&8Cant beat this'
+  icon: IRON_INGOT
+  price: 0
+  perm: 'desertedpvp.kit.golem'
