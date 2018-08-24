@@ -28,7 +28,6 @@ public class KitManager {
         return null;
     }
 
-
     public static IKit getKitFromMat(Material mat) {
         return matToKit.get(mat);
     }
@@ -61,7 +60,6 @@ public class KitManager {
         checkNull();
         return kits;
     }
-
 
     private static void checkNull() {
         if (matToKit == null) {
