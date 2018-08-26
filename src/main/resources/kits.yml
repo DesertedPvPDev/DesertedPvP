@@ -102,3 +102,10 @@ ninja:
   icon: GOLD_NUGGET
   price: 0
   perm: 'desertedpvp.kit.ninja'
+pyro_ninja:
+  name: '&pyro_ninja'
+  lore:
+    - '&8Cant catch this'
+  icon: FLINT_AND_STEEL
+  price: 0
+  perm: 'desertedpvp.kit.pyro_ninja'

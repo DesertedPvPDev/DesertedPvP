@@ -45,6 +45,7 @@ public class KitManager {
         addKit(new PorcupineKit());
         addKit(new GolemKit());
         addKit(new NinjaKIt());
+        addKit(new PyroNinja());
     }
 
     public static void loadKit(String key, ConfigurationSection section) {
