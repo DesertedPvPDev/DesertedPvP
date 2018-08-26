@@ -44,7 +44,8 @@ public class InteractEvent implements Listener {
                     int amount = e.getPlayer().getItemInHand().getAmount() - 1;
                     e.getPlayer().setItemInHand(new ItemStack(Material.COOKED_BEEF, amount));
                 } else {
-                    e.getPlayer().getInventory().remove(e.getPlayer().getItemInHand());
+                    e.getPlayer().getInventory().setItemInHand(null);
+                    e.getPlayer().updateInventory();
                 }
             }
             if (pvp.getUserManager().getUser(e.getPlayer()).getCurrentKit() != null) {
