@@ -28,10 +28,9 @@ public class SniperKit extends IKit {
         p.getInventory().setBoots(new LeatherArmorFactory(Material.LEATHER_BOOTS, Color.GREEN).build());
 
         ItemStack bow = new ItemStack(Material.BOW);
-        bow.addEnchantment(Enchantment.ARROW_INFINITE, 1);
         p.getInventory().addItem(bow);
 
-        p.getInventory().addItem(new ItemStack(Material.ARROW));
+        p.getInventory().addItem(new ItemStack(Material.ARROW, 32));
 
         ItemStack sword = new ItemStack(Material.WOOD_SWORD);
         sword.addEnchantment(Enchantment.DAMAGE_ALL, 1);
