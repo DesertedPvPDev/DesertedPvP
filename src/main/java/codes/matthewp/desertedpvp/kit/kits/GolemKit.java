@@ -31,16 +31,13 @@ public class GolemKit extends IKit {
         legs.addEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 1);
         boots.addEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 1);
 
-        ItemStack sword = new ItemStack(Material.WOOD_SWORD);
-        sword.addEnchantment(Enchantment.DAMAGE_ALL, 1);
-
         p.getInventory().setHelmet(helm);
         p.getInventory().setChestplate(chest);
         p.getInventory().setLeggings(legs);
         p.getInventory().setBoots(boots);
-        p.getInventory().addItem(sword);
+        p.getInventory().addItem(new ItemStack(Material.WOOD_SWORD));
 
-        p.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, Integer.MAX_VALUE, 1));
+        p.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, Integer.MAX_VALUE, 0));
 
         p.sendMessage(Messages.getMessage("youHaveRecievedKit").replaceAll("%KIT%", stripColor(getName())));
         KillStreaks.giveKillStreaksItem(p);
