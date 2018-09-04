@@ -22,11 +22,11 @@ public class PyroNinja extends IKit {
         p.getInventory().clear();
 
         p.getInventory().setHelmet(new ItemStack(Material.IRON_HELMET));
-        p.getInventory().setHelmet(new ItemStack(Material.IRON_CHESTPLATE));
+        p.getInventory().setChestplate(new ItemStack(Material.IRON_CHESTPLATE));
         ItemStack legs = new ItemStack(Material.CHAINMAIL_LEGGINGS);
         legs.addEnchantment(Enchantment.PROTECTION_FIRE, 1);
         p.getInventory().setLeggings(legs);
-        p.getInventory().setHelmet(new ItemStack(Material.IRON_BOOTS));
+        p.getInventory().setBoots(new ItemStack(Material.IRON_BOOTS));
 
         ItemStack stack = new ItemStack(Material.IRON_SWORD);
         stack.addEnchantment(Enchantment.FIRE_ASPECT, 1);
