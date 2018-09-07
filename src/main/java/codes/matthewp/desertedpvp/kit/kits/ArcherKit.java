@@ -38,7 +38,7 @@ public class ArcherKit extends IKit {
         p.getInventory().addItem(sword);
         p.getInventory().addItem(new ItemStack(Material.ARROW));
 
-        p.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, Integer.MAX_VALUE, 1));
+        p.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, Integer.MAX_VALUE, 0));
 
         p.sendMessage(Messages.getMessage("youHaveRecievedKit").replaceAll("%KIT%", stripColor(getName())));
         KillStreaks.giveKillStreaksItem(p);
