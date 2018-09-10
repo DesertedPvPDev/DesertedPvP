@@ -37,7 +37,7 @@ public class InteractEvent implements Listener {
                     e.getPlayer().sendMessage(Messages.getMessage("notYourDrop"));
                 }
             }
-        } else if (e.getAction() == Action.RIGHT_CLICK_BLOCK || e.getAction() == Action.RIGHT_CLICK_AIR) {
+        } else if (e.getAction() == Action.RIGHT_CLICK_AIR || e.getAction() == Action.RIGHT_CLICK_BLOCK) {
             if (e.getPlayer().getItemInHand().getType() == Material.COOKED_BEEF) {
                 e.getPlayer().setHealth(e.getPlayer().getHealth() + 4.0);
                 if (e.getPlayer().getItemInHand().getAmount() > 1) {

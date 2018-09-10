@@ -84,6 +84,7 @@ public class IKit {
     }
 
     public String stripColor(String str) {
+        str = ChatColor.translateAlternateColorCodes('&', str);
         return ChatColor.stripColor(str);
     }
 }
