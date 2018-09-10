@@ -34,8 +34,10 @@ public class KitManager {
 
     public static void lazyLoad() {
         addKit(new KnightKit());
+        addKit(new KnightKit2());
         addKit(new TosserKit());
         addKit(new ArcherKit());
+        addKit(new ArcherKit2());
         addKit(new ManiacKit());
         addKit(new JuggernautKit());
         addKit(new SniperKit());

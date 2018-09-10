@@ -3,38 +3,38 @@ package codes.matthewp.desertedpvp.kit.kits;
 import codes.matthewp.desertedpvp.data.Messages;
 import codes.matthewp.desertedpvp.killstreak.KillStreaks;
 import codes.matthewp.desertedpvp.kit.IKit;
+import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.potion.PotionEffect;
-import org.bukkit.potion.PotionEffectType;
 
-public class PyroNinja extends IKit {
+public class KnightKit2 extends IKit {
 
     @Override
     public String intelID() {
-        return "pyro_ninja";
+        return "knight2";
     }
 
     @Override
     public void giveKit(Player p) {
         p.getInventory().clear();
-
         p.getInventory().setHelmet(new ItemStack(Material.IRON_HELMET));
         p.getInventory().setChestplate(new ItemStack(Material.IRON_CHESTPLATE));
-        ItemStack legs = new ItemStack(Material.CHAINMAIL_LEGGINGS);
-        legs.addEnchantment(Enchantment.PROTECTION_FIRE, 1);
-        p.getInventory().setLeggings(legs);
+        p.getInventory().setLeggings(new ItemStack(Material.IRON_LEGGINGS));
         p.getInventory().setBoots(new ItemStack(Material.IRON_BOOTS));
 
-        ItemStack stack = new ItemStack(Material.IRON_SWORD);
-        stack.addEnchantment(Enchantment.FIRE_ASPECT, 1);
-        p.getInventory().addItem(stack);
+        ItemStack sword = new ItemStack(Material.IRON_SWORD);
+        sword.addEnchantment(Enchantment.DAMAGE_ALL, 1);
+        p.getInventory().addItem(sword);
 
-        p.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, Integer.MAX_VALUE, 1));
-
-        p.sendMessage(Messages.getMessage("youHaveRecievedKit").replaceAll("%KIT%", stripColor(getName())));
         KillStreaks.giveKillStreaksItem(p);
+        p.sendMessage(Messages.getMessage("youHaveRecievedKit").replaceAll("%KIT%", stripColor(getName())));
+    }
+
+    public String stripColor(String str) {
+        str = ChatColor.translateAlternateColorCodes('&', str);
+        str = ChatColor.stripColor(str);
+        return str;
     }
 }

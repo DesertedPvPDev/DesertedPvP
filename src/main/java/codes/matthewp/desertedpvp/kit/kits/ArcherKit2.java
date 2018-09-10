@@ -10,11 +10,11 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
-public class ArcherKit extends IKit {
+public class ArcherKit2 extends IKit {
 
     @Override
     public String intelID() {
-        return "archer";
+        return "archer2";
     }
 
     @Override
@@ -28,7 +28,7 @@ public class ArcherKit extends IKit {
         p.getInventory().setBoots(boots);
 
         ItemStack bow = new ItemStack(Material.BOW);
-        bow.addEnchantment(Enchantment.ARROW_DAMAGE, 1);
+        bow.addEnchantment(Enchantment.ARROW_DAMAGE, 2);
         bow.addEnchantment(Enchantment.ARROW_INFINITE, 1);
         p.getInventory().addItem(bow);
 

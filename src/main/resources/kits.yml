@@ -11,6 +11,13 @@ knight:
   icon: IRON_SWORD
   price: 0
   perm: 'desertedpvp.kit.knight'
+knight2:
+  name: '&6Knight2'
+  lore:
+    - '&bThe upgraded starter kit!'
+  icon: IRON_SWORD
+  price: 300
+  perm: 'desertedpvp.kit.knight2'
 tosser:
   name: '&bTosser'
   lore:
@@ -25,6 +32,13 @@ archer:
   icon: ARROW
   price: 0
   perm: 'desertedpvp.kit.archer'
+archer2:
+  name: '&cArcher2'
+  lore:
+    - '&cEven more pratice!'
+  icon: ARROW
+  price: 0
+  perm: 'desertedpvp.kit.archer2'
 maniac:
   name: '&4Maniac'
   lore:
