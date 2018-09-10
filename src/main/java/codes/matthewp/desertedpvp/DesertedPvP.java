@@ -12,6 +12,7 @@ import codes.matthewp.desertedpvp.cmd.spawn.SetSpawnCmd;
 import codes.matthewp.desertedpvp.cmd.spawn.SpawnCmd;
 import codes.matthewp.desertedpvp.data.BlockTracker;
 import codes.matthewp.desertedpvp.data.CoinsDataAccess;
+import codes.matthewp.desertedpvp.data.TeamsDataAccess;
 import codes.matthewp.desertedpvp.event.entity.EntityDeath;
 import codes.matthewp.desertedpvp.event.entity.EntitySpawn;
 import codes.matthewp.desertedpvp.event.interact.InteractEvent;
@@ -43,6 +44,7 @@ public class DesertedPvP extends JavaPlugin {
     private RankManager rankManager;
 
     private CoinsDataAccess coinsDataAccess;
+    private TeamsDataAccess teamsDataAcess;
 
     private Permission perms = null;
 
@@ -79,6 +81,7 @@ public class DesertedPvP extends JavaPlugin {
                 new InventoryClose(this));
         core = DesertedCore.getCore();
         coinsDataAccess = new CoinsDataAccess(getDB(), this);
+        teamsDataAcess = new TeamsDataAccess(getDB(), this);
         instance = this;
 
         if (Bukkit.getPluginManager().isPluginEnabled("PlaceholderAPI")) {
