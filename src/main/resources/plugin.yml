@@ -21,3 +21,5 @@ commands:
     description: Pay a player
   rankup:
     description: Rank up a player
+  team:
+    description: Primary team command

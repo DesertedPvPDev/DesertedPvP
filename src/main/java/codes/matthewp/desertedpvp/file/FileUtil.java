@@ -1,5 +1,6 @@
 package codes.matthewp.desertedpvp.file;
 
+import codes.matthewp.desertedcore.config.api.ConfigFile;
 import codes.matthewp.desertedpvp.DesertedPvP;
 import codes.matthewp.desertedpvp.data.Messages;
 import codes.matthewp.desertedpvp.data.SpawnData;
@@ -34,6 +35,8 @@ public class FileUtil {
     private FileConfiguration killStreaks;
     private FileConfiguration rankup;
 
+    private ConfigFile teams;
+
     public FileUtil(DesertedPvP pvp) {
         this.desertedPvP = pvp;
         setup();
@@ -51,6 +54,7 @@ public class FileUtil {
         kitsFile = new File(desertedPvP.getDataFolder() + File.separator + "kits.yml");
         killStreaksFile = new File(desertedPvP.getDataFolder() + File.separator + "killstreaks.yml");
         rankupFile = new File(desertedPvP.getDataFolder() + File.separator + "rankup.yml");
+        teams = new ConfigFile(desertedPvP, "teams", "0.0.1", desertedPvP.getLogger());
 
         if (!spawnFile.exists()) {
             saveRes(spawnFile);
@@ -89,6 +93,9 @@ public class FileUtil {
         return killStreaks;
     }
 
+    public ConfigFile getTeams() {
+        return teams;
+    }
 
     private void loadData() {
         config = YamlConfiguration.loadConfiguration(configFile);

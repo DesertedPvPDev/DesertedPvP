@@ -1,0 +1,16 @@
+################
+# Teams file  #
+################
+
+# Teams
+teamhelp:
+  - '&6-----------&cTeams&6-----------'
+  - '/team create : Create a team'
+  - '/team invite : Invite a player to your team'
+  - '/team accept : Accept an invite to a team'
+  - '/team top    : View the list of top teams'
+  - '/team help   : Shows this message'
+  - '&6-----------&cTeams&6-----------'
+
+# Dont touch :)
+version: '0.0.1'

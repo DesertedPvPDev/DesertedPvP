@@ -10,6 +10,7 @@ import codes.matthewp.desertedpvp.cmd.player.PayCmd;
 import codes.matthewp.desertedpvp.cmd.player.RankupCmd;
 import codes.matthewp.desertedpvp.cmd.spawn.SetSpawnCmd;
 import codes.matthewp.desertedpvp.cmd.spawn.SpawnCmd;
+import codes.matthewp.desertedpvp.cmd.team.TeamCmd;
 import codes.matthewp.desertedpvp.data.BlockTracker;
 import codes.matthewp.desertedpvp.data.CoinsDataAccess;
 import codes.matthewp.desertedpvp.data.TeamsDataAccess;
@@ -117,6 +118,7 @@ public class DesertedPvP extends JavaPlugin {
         getCommand("addcoins").setExecutor(new GiveCoinsCmd(this));
         getCommand("pay").setExecutor(new PayCmd(this));
         getCommand("rankup").setExecutor(new RankupCmd(this));
+        getCommand("team").setExecutor(new TeamCmd(this));
     }
 
     private void regListeners(Listener... listeners) {
