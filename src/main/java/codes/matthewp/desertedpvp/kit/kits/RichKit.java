@@ -36,7 +36,7 @@ public class RichKit extends IKit {
         p.getInventory().setBoots(boots);
 
         p.getInventory().addItem(new ItemStack(Material.DIAMOND_SWORD));
-        p.getInventory().addItem(new ItemStack(Material.COOKED_BEEF));
+        p.getInventory().addItem(new ItemStack(Material.APPLE));
 
         p.sendMessage(Messages.getMessage("youHaveRecievedKit").replaceAll("%KIT%", stripColor(getName())));
         KillStreaks.giveKillStreaksItem(p);
