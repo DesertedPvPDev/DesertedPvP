@@ -33,7 +33,7 @@ public class BeastMasterKit extends IKit {
         p.getInventory().setBoots(new ItemStack(Material.IRON_BOOTS));
 
         p.getInventory().addItem(new ItemStack(Material.IRON_SWORD));
-        p.getInventory().addItem(new ItemStack(Material.COOKED_BEEF));
+        p.getInventory().addItem(new ItemStack(Material.APPLE));
         p.sendMessage(Messages.getMessage("youHaveRecievedKit").replaceAll("%KIT%", stripColor(getName())));
         KillStreaks.giveKillStreaksItem(p);
     }
