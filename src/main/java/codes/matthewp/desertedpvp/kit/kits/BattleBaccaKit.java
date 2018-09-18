@@ -26,7 +26,7 @@ public class BattleBaccaKit extends IKit {
         ItemStack axe = new ItemStack(Material.DIAMOND_AXE);
         axe.addEnchantment(Enchantment.DAMAGE_ALL, 1);
         p.getInventory().addItem(axe);
-        p.getInventory().addItem(new ItemStack(Material.COOKED_BEEF, 3));
+        p.getInventory().addItem(new ItemStack(Material.APPLE, 3));
 
         p.sendMessage(Messages.getMessage("youHaveRecievedKit").replaceAll("%KIT%", stripColor(getName())));
         KillStreaks.giveKillStreaksItem(p);
