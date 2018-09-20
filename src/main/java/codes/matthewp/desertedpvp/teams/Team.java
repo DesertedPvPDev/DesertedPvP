@@ -7,15 +7,18 @@ import java.util.UUID;
  * Created by Mario on 9/13/2018.
  */
 public class Team {
+    private int id;
     private String name;
     private UUID owner;
     private List<UUID> members;
 
-    public Team(String name, UUID owner, List<UUID> members) {
+    public Team(int id, String name, UUID owner, List<UUID> members) {
+        this.id = id;
         this.name = name;
         this.owner = owner;
         this.members = members;
     }
+    public int getId() { return id; }
     public String getName() {
         return name;
     }
