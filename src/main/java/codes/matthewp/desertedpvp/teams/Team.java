@@ -10,9 +10,9 @@ public class Team {
     private int id;
     private String name;
     private UUID owner;
-    private List<UUID> members;
+    private List<TeamMember> members;
 
-    public Team(int id, String name, UUID owner, List<UUID> members) {
+    public Team(int id, String name, UUID owner, List<TeamMember> members) {
         this.id = id;
         this.name = name;
         this.owner = owner;
@@ -25,24 +25,24 @@ public class Team {
     public UUID getOwner() {
         return owner;
     }
-    public List<UUID> getMembers() {
+    public List<TeamMember> getMembers() {
         return members;
     }
-    public void setMembers(List<UUID> members) {
+    public void setMembers(List<TeamMember> members) {
         this.members = members;
     }
-    public boolean addMember(UUID uuid) {
-        if(members.size() ==8 || members.contains(uuid)){
+    public boolean addMember(TeamMember member) {
+        if(members.size() ==8 || members.contains(member)){
             return false;
         }
-        members.add(uuid);
+        members.add(member);
         return true;
     }
-    public boolean removeMember(UUID uuid) {
-        if(!members.contains(uuid)) {
+    public boolean removeMember(TeamMember member) {
+        if(!members.contains(member)) {
             return false;
         }
-        members.remove(uuid);
+        members.remove(member);
         return true;
     }
 }

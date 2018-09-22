@@ -82,7 +82,7 @@ public class TeamsDataAccess extends DatabaseAccess {
                         int id = 0;
                         String name;
                         UUID uuid = null;
-                        List<UUID> members =null;
+                        List<TeamMember> members =null;
 
                         id = set.getInt("team_id");
                         name = set.getString("team_name");
@@ -123,8 +123,8 @@ public class TeamsDataAccess extends DatabaseAccess {
         });
 
 
-        ArrayList<UUID> members = new ArrayList<>();
-        members.add(uuid);
+        ArrayList<TeamMember> members = new ArrayList<>();
+        members.add(pvp.getTeamManager().getMemberFromUUID(uuid));
         return new Team(id, name, uuid, members);
     }
     public void updateTeamInDatabase(Team team) {

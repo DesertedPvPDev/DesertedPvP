@@ -98,6 +98,11 @@ public class DesertedPvP extends JavaPlugin {
     @Override
     public void onDisable() {
         user.saveUserCoins();
+
+        //Save all Teams and TeamMembers information to the database
+        teamsManager.saveTeams();
+        teamsManager.saveTeamMembers();
+
         BlockTracker.removeBlocks();
         core.getDB().disconnect();
         instance = null;

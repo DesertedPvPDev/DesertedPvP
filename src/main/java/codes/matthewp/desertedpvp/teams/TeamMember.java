@@ -25,8 +25,8 @@ public class TeamMember {
     public int getTeam_id() {
         return team_id;
     }
-
     public void setArenaKills(int amount) {
         this.arenaKills = amount;
     }
+    public void setTeam_id(int id) { this.team_id = id; }
 }

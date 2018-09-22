@@ -33,7 +33,9 @@ public class User {
     public IKit getCurrentKit() {
         return currentKit;
     }
+
     public TeamMember getTeamMember()  { return tMember; }
+    public void setTeamMember(TeamMember tMember) { this.tMember = tMember; }
 
     public void setKit(IKit kit) {
         this.currentKit = kit;

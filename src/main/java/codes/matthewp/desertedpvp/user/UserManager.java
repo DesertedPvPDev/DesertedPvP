@@ -1,6 +1,7 @@
 package codes.matthewp.desertedpvp.user;
 
 import codes.matthewp.desertedpvp.DesertedPvP;
+import codes.matthewp.desertedpvp.teams.TeamMember;
 import org.apache.commons.lang3.Validate;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
@@ -75,6 +76,15 @@ public class UserManager {
     public User genUser(UUID uuid) {
         User user = new User(uuid);
         user = DesertedPvP.getInstace().getCoinDataAccessor().fetchUserCoins(user);
+
+        TeamMember tMember = null;
+        if(DesertedPvP.getInstace().getTeamManager().getMemberFromUUID(uuid) == null) {
+            tMember = DesertedPvP.getInstace().getTeamManager().createNewTeamMember(uuid);
+        }
+        else {
+            tMember = DesertedPvP.getInstace().getTeamManager().getMemberFromUUID(uuid);
+        }
+        user.setTeamMember(tMember);
         return user;
     }
 
