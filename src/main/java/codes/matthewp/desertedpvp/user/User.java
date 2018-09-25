@@ -4,6 +4,7 @@ import codes.matthewp.desertedpvp.data.Messages;
 import codes.matthewp.desertedpvp.killstreak.KillStreaks;
 import codes.matthewp.desertedpvp.kit.IKit;
 import codes.matthewp.desertedpvp.kit.KitSelector;
+import codes.matthewp.desertedpvp.teams.TeamMember;
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
 import org.bukkit.entity.Player;
@@ -23,6 +24,7 @@ public class User {
     private int coins = 0;
     private Inventory lastInv;
     private boolean hasUsedOnceAbility = false;
+    private TeamMember tMember;
 
     public User(UUID playerUUID) {
         this.playerUUID = playerUUID;
@@ -31,6 +33,9 @@ public class User {
     public IKit getCurrentKit() {
         return currentKit;
     }
+
+    public TeamMember getTeamMember()  { return tMember; }
+    public void setTeamMember(TeamMember tMember) { this.tMember = tMember; }
 
     public void setKit(IKit kit) {
         this.currentKit = kit;

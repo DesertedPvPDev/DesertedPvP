@@ -24,6 +24,7 @@ import codes.matthewp.desertedpvp.event.world.TransEntityEvent;
 import codes.matthewp.desertedpvp.file.FileUtil;
 import codes.matthewp.desertedpvp.placeholder.PvPPlaceholders;
 import codes.matthewp.desertedpvp.rankup.RankManager;
+import codes.matthewp.desertedpvp.teams.TeamManager;
 import codes.matthewp.desertedpvp.user.UserManager;
 import net.milkbowl.vault.permission.Permission;
 import org.bukkit.Bukkit;
@@ -43,6 +44,7 @@ public class DesertedPvP extends JavaPlugin {
     private static DesertedPvP instance;
     private DesertedCore core;
     private RankManager rankManager;
+    private TeamManager teamsManager;
 
     private CoinsDataAccess coinsDataAccess;
     private TeamsDataAccess teamsDataAcess;
@@ -83,6 +85,8 @@ public class DesertedPvP extends JavaPlugin {
         core = DesertedCore.getCore();
         coinsDataAccess = new CoinsDataAccess(getDB(), this);
         teamsDataAcess = new TeamsDataAccess(getDB(), this);
+        teamsManager = new TeamManager(this);
+
         instance = this;
 
         if (Bukkit.getPluginManager().isPluginEnabled("PlaceholderAPI")) {
@@ -94,6 +98,11 @@ public class DesertedPvP extends JavaPlugin {
     @Override
     public void onDisable() {
         user.saveUserCoins();
+
+        //Save all Teams and TeamMembers information to the database
+        teamsManager.saveTeams();
+        teamsManager.saveTeamMembers();
+
         BlockTracker.removeBlocks();
         core.getDB().disconnect();
         instance = null;
@@ -152,4 +161,8 @@ public class DesertedPvP extends JavaPlugin {
     public RankManager getRankManager() {
         return rankManager;
     }
+
+    public TeamsDataAccess getTeamsDataAcess() { return teamsDataAcess; }
+
+    public TeamManager getTeamManager() { return teamsManager; }
 }
