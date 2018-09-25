@@ -48,6 +48,8 @@ public class KitManager {
         addKit(new GolemKit());
         addKit(new NinjaKIt());
         addKit(new PyroNinja());
+        addKit(new ReaperKit());
+        addKit(new ChefKit());
     }
 
     public static void loadKit(String key, ConfigurationSection section) {

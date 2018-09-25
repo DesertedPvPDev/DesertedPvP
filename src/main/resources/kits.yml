@@ -123,3 +123,15 @@ pyro_ninja:
   icon: FLINT_AND_STEEL
   price: 0
   perm: 'desertedpvp.kit.pyro_ninja'
+reaper:
+  name: '&cReaper'
+  lore:
+    - 'Get those souls!'
+  icon: IRON_HOE
+  perm: 'desertedpvp.kit.reaper'
+chef:
+  name: '&6Chef'
+  lore:
+    - 'Cookup some hearts'
+  icon: STEAK
+  perm: 'desertedpvp.kit.chef'
