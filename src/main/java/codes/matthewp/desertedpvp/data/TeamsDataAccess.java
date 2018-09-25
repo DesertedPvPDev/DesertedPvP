@@ -38,7 +38,7 @@ public class TeamsDataAccess extends DatabaseAccess {
             stmt.executeUpdate(query);
 
             Statement stmt1 = conn.createStatement();
-            String query1 = "CRETE TABLE IF NOT EXISTS `team_members`" +
+            String query1 = "CREATE TABLE IF NOT EXISTS `team_members`" +
                     "( "+
                     "`uuid` VARCHAR(255) CHARACTER SET latin7 COLLATE latin7_bin,"+
                     "`team_id` INT"+
