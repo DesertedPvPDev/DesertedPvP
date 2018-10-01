@@ -20,6 +20,7 @@ public class IKit {
     public int price;
     public List<String> lore;
     public Material iconMat;
+    public short durability;
     public String perm;
 
     public String intelID() {
@@ -61,13 +62,25 @@ public class IKit {
     public void load(ConfigurationSection sec) {
         name = sec.getString("name");
         price = sec.getInt("price");
-        iconMat = Material.getMaterial(sec.getString("icon"));
         lore = sec.getStringList("lore");
         perm = sec.getString("perm");
+
+        //Load Material From Configuration Section taking into account the fact that some items have an icon with a durability
+        String mat = sec.getString("icon");
+        short durability = 0;
+        if(mat.contains(":")) {
+            int index = mat.indexOf(":");
+
+            durability = Short.parseShort(mat.substring(index + 1));
+            mat = mat.substring(0, index);
+        }
+        iconMat = Material.getMaterial(sec.getString("icon"));
+        this.durability = durability;
     }
 
     public ItemStack icon() {
         ItemStack stack = new ItemStack(iconMat);
+        stack.setDurability(durability);
         ItemMeta meta = stack.getItemMeta();
         meta.setDisplayName(color(getName()));
         meta.setLore(colorList(getLore()));

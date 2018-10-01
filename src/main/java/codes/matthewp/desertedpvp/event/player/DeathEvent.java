@@ -55,5 +55,4 @@ public class DeathEvent implements Listener {
             }
         }
     }
-
 }

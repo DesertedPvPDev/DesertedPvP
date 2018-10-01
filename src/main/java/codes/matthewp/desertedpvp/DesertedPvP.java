@@ -22,6 +22,7 @@ import codes.matthewp.desertedpvp.event.player.*;
 import codes.matthewp.desertedpvp.event.world.DropEvent;
 import codes.matthewp.desertedpvp.event.world.TransEntityEvent;
 import codes.matthewp.desertedpvp.file.FileUtil;
+import codes.matthewp.desertedpvp.kit.KitManager;
 import codes.matthewp.desertedpvp.placeholder.PvPPlaceholders;
 import codes.matthewp.desertedpvp.rankup.RankManager;
 import codes.matthewp.desertedpvp.teams.TeamManager;
@@ -81,11 +82,15 @@ public class DesertedPvP extends JavaPlugin {
                 new EntityDeath(),
                 new EntitySpawn(),
                 new DamageEvent(),
-                new InventoryClose(this));
+                new InventoryClose(this),
+                new KitEvent());
         core = DesertedCore.getCore();
         coinsDataAccess = new CoinsDataAccess(getDB(), this);
         teamsDataAcess = new TeamsDataAccess(getDB(), this);
         teamsManager = new TeamManager(this);
+
+        //Start the Runnable that keep track of kits cooldowns
+        KitManager.runCooldown();
 
         instance = this;
 

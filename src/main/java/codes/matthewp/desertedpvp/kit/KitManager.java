@@ -1,9 +1,11 @@
 package codes.matthewp.desertedpvp.kit;
 
+import codes.matthewp.desertedpvp.DesertedPvP;
 import codes.matthewp.desertedpvp.kit.kits.*;
 import org.bukkit.Material;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.entity.Player;
+import org.bukkit.scheduler.BukkitRunnable;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -13,6 +15,50 @@ public class KitManager {
 
     private static HashMap<Material, IKit> matToKit;
     private static List<IKit> kits;
+    private static HashMap<Player, Integer> cooldown;
+
+    //Cooldown related methods
+    public static int getRemainingTime(Player p) {
+        if(!isInCooldown(p)) {
+            return -1;
+        }
+        return cooldown.get(p);
+    }
+    public static boolean isInCooldown(Player p) {
+        return cooldown.containsKey(p);
+    }
+    public static boolean addPlayerToCooldown(Player p, int time) {
+        if(!isInCooldown(p)) {
+            cooldown.put(p, time);
+            return true;
+        }
+        return false;
+    }
+    public static boolean removePlayerFromCooldown(Player p){
+        if(!isInCooldown(p)) {
+            return false;
+        }
+        cooldown.remove(p);
+        return true;
+    }
+    //Need to be Completed with Messages
+    public static void runCooldown() {
+        new BukkitRunnable() {
+            @Override
+            public void run() {
+                if(!cooldown.isEmpty()) {
+                    for(Player p: cooldown.keySet()) {
+                        int time = getRemainingTime(p) - 1;
+                        cooldown.put(p, time);
+
+                        if(time == 0) {
+                            removePlayerFromCooldown(p);
+                        }
+                    }
+                }
+            }
+        }.runTaskTimerAsynchronously(DesertedPvP.getInstace(), 0, 20);
+    }
 
     public static void addKit(IKit kit) {
         checkNull();
@@ -74,4 +120,9 @@ public class KitManager {
             kits = new ArrayList<>();
         }
     }
-}
+    private static void checkNullCooldown() {
+        if(cooldown == null) {
+            cooldown = new HashMap<>();
+        }
+    }
+ }

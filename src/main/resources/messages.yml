@@ -44,6 +44,7 @@ minusCoins: '&b%AMOUNT% coins have been subtracted from your account.'
 
 # Kit buying
 noHaveKit: '&cYou havent unlocked this kit!'
+poisonedEnemy: '&2You have poisoned your enemy'
 
 # Rank up
 noRankUp: '&cYou may not rank up!'
