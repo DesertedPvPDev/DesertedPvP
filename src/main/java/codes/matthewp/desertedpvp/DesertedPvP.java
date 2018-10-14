@@ -54,6 +54,7 @@ public class DesertedPvP extends JavaPlugin {
 
     @Override
     public void onEnable() {
+        instance = this;
         fileUtil = new FileUtil(this);
         user = new UserManager();
         user.scanForUsers();
@@ -91,8 +92,6 @@ public class DesertedPvP extends JavaPlugin {
 
         //Start the Runnable that keep track of kits cooldowns
         KitManager.runCooldown();
-
-        instance = this;
 
         if (Bukkit.getPluginManager().isPluginEnabled("PlaceholderAPI")) {
             System.out.println("Found placeholder API. Will attempt to hook.");
