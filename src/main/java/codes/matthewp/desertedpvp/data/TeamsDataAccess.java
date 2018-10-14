@@ -8,7 +8,9 @@ import codes.matthewp.desertedpvp.teams.TeamMember;
 import org.bukkit.Bukkit;
 
 import java.sql.*;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
 
 public class TeamsDataAccess extends DatabaseAccess {
 
@@ -44,7 +46,7 @@ public class TeamsDataAccess extends DatabaseAccess {
                     "`team_id` INT"+
                     "`arena_kills` INT,"+
                     "PRIMARY KEY(`uuid`)) ENGINE=InnoDB;";
-            stmt1.executeQuery(query1);
+            stmt1.executeUpdate(query1);
 
 
         } catch (SQLException ex) {
