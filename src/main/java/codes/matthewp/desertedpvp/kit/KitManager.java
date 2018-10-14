@@ -13,9 +13,9 @@ import java.util.List;
 
 public class KitManager {
 
-    private static HashMap<Material, IKit> matToKit;
+    private static HashMap<Material, IKit> matToKit = new HashMap<>();
     private static List<IKit> kits;
-    private static HashMap<Player, Integer> cooldown;
+    private static HashMap<Player, Integer> cooldown = new HashMap<>();
 
     //Cooldown related methods
     public static int getRemainingTime(Player p) {
