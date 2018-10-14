@@ -38,11 +38,11 @@ public class InteractEvent implements Listener {
                 }
             }
         } else if (e.getAction() == Action.RIGHT_CLICK_AIR || e.getAction() == Action.RIGHT_CLICK_BLOCK) {
-            if (e.getPlayer().getItemInHand().getType() == Material.COOKED_BEEF) {
+            if (e.getPlayer().getItemInHand().getType() == Material.APPLE) {
                 e.getPlayer().setHealth(e.getPlayer().getHealth() + 4.0);
                 if (e.getPlayer().getItemInHand().getAmount() > 1) {
                     int amount = e.getPlayer().getItemInHand().getAmount() - 1;
-                    e.getPlayer().setItemInHand(new ItemStack(Material.COOKED_BEEF, amount));
+                    e.getPlayer().setItemInHand(new ItemStack(Material.APPLE, amount));
                 } else {
                     e.getPlayer().getInventory().setItemInHand(null);
                     e.getPlayer().updateInventory();
