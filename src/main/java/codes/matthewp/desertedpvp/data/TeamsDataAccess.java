@@ -43,8 +43,8 @@ public class TeamsDataAccess extends DatabaseAccess {
             String query1 = "CREATE TABLE IF NOT EXISTS `team_members`" +
                     "( "+
                     "`uuid` VARCHAR(255) CHARACTER SET latin7 COLLATE latin7_bin,"+
-                    "`team_id` INT"+
-                    "`arena_kills` INT,"+
+                    "`team_id` INT," +
+                    "`arena_kills` INT" +
                     "PRIMARY KEY(`uuid`)) ENGINE=InnoDB;";
             stmt1.executeUpdate(query1);
 
