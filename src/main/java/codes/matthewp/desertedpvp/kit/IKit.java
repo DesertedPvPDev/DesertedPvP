@@ -69,16 +69,19 @@ public class IKit {
         String mat = sec.getString("icon");
         short durability = 0;
         if(mat.contains(":")) {
-            int index = mat.indexOf(":");
-
-            durability = Short.parseShort(mat.substring(index + 1));
-            mat = mat.substring(0, index);
+            String[] matBits = mat.split(":");
+            System.out.println("Not only using a item with duribility, but its parts are: " + matBits[0] + " " + matBits[1]);
+            iconMat = Material.getMaterial(matBits[0]);
+            durability = Short.parseShort(matBits[1]);
+        } else {
+            System.out.println("Using a icon without damage values.");
+            iconMat = Material.getMaterial(sec.getString("icon"));
         }
-        iconMat = Material.getMaterial(sec.getString("icon"));
         this.durability = durability;
     }
 
     public ItemStack icon() {
+        System.out.println(iconMat + " " + durability + " " + getName() + " " + getLore());
         ItemStack stack = new ItemStack(iconMat);
         stack.setDurability(durability);
         ItemMeta meta = stack.getItemMeta();

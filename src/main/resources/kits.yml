@@ -8,56 +8,56 @@ knight:
   name: '&6Knight'
   lore:
     - '&bThe classic starter kit!'
-  icon: IRON_SWORD
+  icon: 'IRON_SWORD'
   price: 0
   perm: 'desertedpvp.kit.knight'
 knight2:
   name: '&6Knight2'
   lore:
     - '&bThe upgraded starter kit!'
-  icon: IRON_SWORD
+  icon: 'STONE_SWORD'
   price: 300
   perm: 'desertedpvp.kit.knight2'
 tosser:
   name: '&bTosser'
   lore:
     - '&bGet off my lawn!!'
-  icon: STICK
+  icon: 'STICK'
   price: 275
   perm: 'desertedpvp.kit.tosser'
 archer:
   name: '&cArcher'
   lore:
     - '&cEnough pratice! Get to it!'
-  icon: ARROW
+  icon: 'ARROW'
   price: 0
   perm: 'desertedpvp.kit.archer'
 archer2:
   name: '&cArcher2'
   lore:
     - '&cEven more pratice!'
-  icon: ARROW
+  icon: 'FLINT'
   price: 0
   perm: 'desertedpvp.kit.archer2'
 maniac:
   name: '&4Maniac'
   lore:
     - '&4*unintelligible muttering*'
-  icon: IRON_AXE
+  icon: 'IRON_AXE'
   price: 0
   perm: 'desertedpvp.kit.maniac'
 jug:
   name: '&2Juggernaut'
   lore:
     - '&2Juggernaut'
-  icon: DIAMOND_HELMET
+  icon: 'DIAMOND_HELMET'
   price: 0
   perm: 'desertedpvp.kit.jug'
 assassin:
   name: '&cAssassin'
   lore:
     - 'You’ll never know what hit you. Watch out for his feet...'
-  icon: STRING
+  icon: 'STRING'
   price: 0
   perm: 'desertedpvp.kit.jug'
   # Note: This CANNOT be deleted for assassin to work...
@@ -68,28 +68,28 @@ sniper:
   name: '&2Sniper'
   lore:
     - '&2From the bushes, comes a deadly shot.'
-  icon: BOW
+  icon: 'BOW'
   price: 0
   perm: 'desertedpvp.kit.sniper'
 battle_bacca:
   name: '&4Battle Bacca'
   lore:
     - '&4WAR!!!!!!'
-  icon: DIAMOND_AXE
+  icon: 'DIAMOND_AXE'
   price: 850
   perm: 'desertedpvp.kit.battlebacca'
 rich:
   name: '&6Rich'
   lore:
     - '&6Got that money though'
-  icon: DIAMOND
+  icon: 'DIAMOND'
   price: 0
   perm: 'desertedpvp.kit.rich'
 beast_master:
   name: '&5Beast Master'
   lore:
     - '&5We needed someone to control these beast'
-  icon: RAW_BEEF
+  icon: 'RAW_BEEF'
   price: 0
   perm: 'desertedpvp.kit.beast_master'
   dogName: "&c%PLAYER%'s hound"
@@ -99,46 +99,46 @@ porkupine:
   name: '&6PorcupineKit'
   lore:
     - '&6Oww.... Spikey'
-  icon: CACTUS
+  icon: 'CACTUS'
   price: 0
   perm: 'desertedpvp.kit.porkupine'
 golem:
   name: '&7Golem'
   lore:
     - '&8Cant beat this'
-  icon: IRON_INGOT
+  icon: 'IRON_INGOT'
   price: 0
   perm: 'desertedpvp.kit.golem'
 ninja:
   name: '&cNinja'
   lore:
     - '&8Cant catch this'
-  icon: GOLD_NUGGET
+  icon: 'GOLD_NUGGET'
   price: 0
   perm: 'desertedpvp.kit.ninja'
 pyro_ninja:
   name: '&pyro_ninja'
   lore:
     - '&8Cant catch this'
-  icon: FLINT_AND_STEEL
+  icon: 'FLINT_AND_STEEL'
   price: 0
   perm: 'desertedpvp.kit.pyro_ninja'
 reaper:
   name: '&cReaper'
   lore:
     - 'Get those souls!'
-  icon: IRON_HOE
+  icon: 'IRON_HOE'
   perm: 'desertedpvp.kit.reaper'
 chef:
   name: '&6Chef'
   lore:
     - 'Cookup some hearts'
-  icon: STEAK
+  icon: 'COOKED_BEEF'
   perm: 'desertedpvp.kit.chef'
 infected:
   name: '&eInfected'
   lore:
     - 'Brrr Poison!'
-  icon: SKULL_ITEM:2
+  icon: 'SKULL_ITEM:2'
   perm: 'desertedpvp.kit.infected'
 
