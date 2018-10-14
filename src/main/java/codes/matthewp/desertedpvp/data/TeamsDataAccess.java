@@ -54,11 +54,12 @@ public class TeamsDataAccess extends DatabaseAccess {
         }
     }
     public int loadMaxId() {
-        String query = "SELECT COUNT(*) FROM `teams` AS `maxId`";
+        String query = "SELECT COUNT(*) FROM `teams`";
         try(Connection con  = db.getConnection(ins); PreparedStatement stmt = con.prepareStatement(query)) {
             ResultSet set = stmt.executeQuery();
             while(set.next()) {
-                int maxId = set.getInt("maxId");
+                // Try to use colum index #s over names in cases like this...
+                int maxId = set.getInt(1);
                 return maxId;
             }
         }
