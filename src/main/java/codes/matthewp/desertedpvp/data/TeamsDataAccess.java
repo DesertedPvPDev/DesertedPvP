@@ -34,43 +34,39 @@ public class TeamsDataAccess extends DatabaseAccess {
                     "( " +
                     "`team_id` INT ," +
                     "`team_name` VARCHAR(255), " +
-                    "`team_leader` VARCHAR(255) CHARACTER SET latin7 COLLATE latin7_bin,"+
+                    "`team_leader` VARCHAR(255) CHARACTER SET latin7 COLLATE latin7_bin," +
                     " PRIMARY KEY (`team_id`) " +
                     ") ENGINE=InnoDB;";
             stmt.executeUpdate(query);
 
             Statement stmt1 = conn.createStatement();
             String query1 = "CREATE TABLE IF NOT EXISTS `team_members`" +
-                    "( "+
-                    "`uuid` VARCHAR(255) CHARACTER SET latin7 COLLATE latin7_bin,"+
+                    "( " +
+                    "`uuid` VARCHAR(255) CHARACTER SET latin7 COLLATE latin7_bin," +
                     "`team_id` INT," +
                     "`arena_kills` INT," +
                     "PRIMARY KEY(`uuid`)) ENGINE=InnoDB;";
             stmt1.executeUpdate(query1);
-
-
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
     }
+
     public int loadMaxId() {
         String query = "SELECT COUNT(*) FROM `teams`";
-        try(Connection con  = db.getConnection(ins); PreparedStatement stmt = con.prepareStatement(query)) {
+        try (Connection con = db.getConnection(ins); PreparedStatement stmt = con.prepareStatement(query)) {
             ResultSet set = stmt.executeQuery();
-            while(set.next()) {
+            while (set.next()) {
                 // Try to use colum index #s over names in cases like this...
                 int maxId = set.getInt(1);
                 return maxId;
             }
-        }
-        catch(SQLException ex) {
+        } catch (SQLException ex) {
             ex.printStackTrace();
         }
         return 0;
-     }
+    }
 
-
-    //Methods related to Team Class
     public List<Team> loadTeams() {
         List<Team> teams = new ArrayList<Team>();
         String query = "SELECT * FROM `teams`";
@@ -85,7 +81,7 @@ public class TeamsDataAccess extends DatabaseAccess {
                         int id = 0;
                         String name;
                         UUID uuid = null;
-                        List<TeamMember> members =null;
+                        List<TeamMember> members = null;
 
                         id = set.getInt("team_id");
                         name = set.getString("team_name");
@@ -102,6 +98,7 @@ public class TeamsDataAccess extends DatabaseAccess {
 
         return teams;
     }
+
     public Team insertTeamIntoDataBase(int id, String name, UUID uuid) {
         String insertQuery = "INSERT INTO `teams`(`team_id` ,`team_name`, `team_leader`" +
                 "VALUES(?, ?, ?, ?)";
@@ -109,82 +106,73 @@ public class TeamsDataAccess extends DatabaseAccess {
         Bukkit.getServer().getScheduler().runTaskAsynchronously(pvp, new Runnable() {
             @Override
             public void run() {
-                try(Connection con = db.getConnection(ins);
-                    PreparedStatement stmt = con.prepareStatement(insertQuery)) {
+                try (Connection con = db.getConnection(ins);
+                     PreparedStatement stmt = con.prepareStatement(insertQuery)) {
                     stmt.setInt(1, id);
                     stmt.setString(2, name);
                     stmt.setString(3, String.valueOf(uuid));
                     stmt.executeUpdate();
-
-
-
-                }
-                catch(SQLException ex) {
+                } catch (SQLException ex) {
                     ex.printStackTrace();
                 }
             }
         });
-
 
         ArrayList<TeamMember> members = new ArrayList<>();
         members.add(pvp.getTeamManager().getMemberFromUUID(uuid));
         return new Team(id, name, uuid, members);
     }
+
     public void updateTeamInDatabase(Team team) {
         String updateQuery = "UPDATE `team` SET " +
-                "`team_name` = ?,"+
-                "`team_leader` = ?"+
+                "`team_name` = ?," +
+                "`team_leader` = ?" +
                 "WHERE `team_id` = ?;";
         Bukkit.getServer().getScheduler().runTaskAsynchronously(pvp, new Runnable() {
             @Override
             public void run() {
-                try(Connection con = db.getConnection(ins); PreparedStatement stmt = con.prepareStatement(updateQuery)) {
+                try (Connection con = db.getConnection(ins); PreparedStatement stmt = con.prepareStatement(updateQuery)) {
                     stmt.setString(1, team.getName());
                     stmt.setString(2, String.valueOf(team.getOwner()));
                     stmt.setInt(3, team.getId());
-                }
-                catch(SQLException ex) {
+                } catch (SQLException ex) {
                     ex.printStackTrace();
                 }
             }
         });
     }
 
-    //Methods related to TeamMember Class
     public List<TeamMember> loadTeamMembers() {
         List<TeamMember> members = new ArrayList<TeamMember>();
         String query = "SELECT * FROM `team_members`";
-        try(Connection con = db.getConnection(ins);
-            PreparedStatement stmt = con.prepareStatement(query))
-        {
-                ResultSet set = stmt.executeQuery();
-                while(set.next()) {
-                    UUID uuid = UUID.fromString(set.getString("uuid"));
-                    int arenaKills = Integer.parseInt("arena_kills");
-                    int team_id = Integer.parseInt("team_id");
+        try (Connection con = db.getConnection(ins);
+             PreparedStatement stmt = con.prepareStatement(query)) {
+            ResultSet set = stmt.executeQuery();
+            while (set.next()) {
+                UUID uuid = UUID.fromString(set.getString("uuid"));
+                int arenaKills = Integer.parseInt("arena_kills");
+                int team_id = Integer.parseInt("team_id");
 
-                    members.add(new TeamMember(uuid, arenaKills, team_id));
-                }
-        }
-        catch(SQLException ex) {
+                members.add(new TeamMember(uuid, arenaKills, team_id));
+            }
+        } catch (SQLException ex) {
             ex.printStackTrace();
         }
         return members;
     }
+
     public TeamMember insertTeamMemberIntoDataBase(UUID uuid) {
-       String query = "INSERT INTO `team_members`(`uuid`, `team_id`, `arena_kills`) VALUES(?, ?, ?)";
+        String query = "INSERT INTO `team_members`(`uuid`, `team_id`, `arena_kills`) VALUES(?, ?, ?)";
         Bukkit.getServer().getScheduler().runTaskAsynchronously(pvp, new Runnable() {
             @Override
             public void run() {
-                try(Connection con = db.getConnection(ins); PreparedStatement stmt = con.prepareStatement(query)) {
+                try (Connection con = db.getConnection(ins); PreparedStatement stmt = con.prepareStatement(query)) {
                     stmt.setString(1, uuid.toString());
                     stmt.setInt(2, 0);
                     stmt.setInt(3, 0);
 
-
                     stmt.executeUpdate();
-                }
-                catch(SQLException ex) {
+                } catch (SQLException ex) {
                     ex.printStackTrace();
                 }
             }
@@ -192,25 +180,23 @@ public class TeamsDataAccess extends DatabaseAccess {
         TeamMember member = new TeamMember(uuid, 0, 0);
         return member;
     }
+
     public void updateTeamMemberIntoDatabase(TeamMember member) {
         String query = "UPDATE `team_members` SET " +
                 "`arena_kills` = ?, `team_id` = ? WHERE `uuid` = ?";
         Bukkit.getServer().getScheduler().runTaskAsynchronously(pvp, new Runnable() {
             @Override
             public void run() {
-                try(Connection con = db.getConnection(ins); PreparedStatement stmt = con.prepareStatement(query)) {
+                try (Connection con = db.getConnection(ins); PreparedStatement stmt = con.prepareStatement(query)) {
                     stmt.setInt(1, member.getArenaKills());
                     stmt.setInt(2, member.getTeam_id());
                     stmt.setString(3, member.getUuid().toString());
 
                     stmt.executeUpdate();
-                }
-                catch(SQLException ex) {
+                } catch (SQLException ex) {
                     ex.printStackTrace();
                 }
             }
         });
     }
-
-
 }
