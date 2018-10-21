@@ -4,6 +4,8 @@ import codes.matthewp.desertedpvp.DesertedPvP;
 import codes.matthewp.desertedpvp.data.CombatTag;
 import codes.matthewp.desertedpvp.data.Messages;
 import codes.matthewp.desertedpvp.user.User;
+import com.sk89q.worldguard.bukkit.WGBukkit;
+import com.sk89q.worldguard.protection.regions.ProtectedRegion;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Arrow;
 import org.bukkit.entity.Player;
@@ -29,15 +31,25 @@ public class HurtEvent implements Listener {
         if (event.getDamager() instanceof Player) {
             Player damager = (Player) event.getDamager();
 
-            if (!CombatTag.isTagged(hit)) {
-                hit.sendMessage(Messages.getMessage("nowCombatTagged"));
-            }
-            if (!CombatTag.isTagged(damager)) {
-                damager.sendMessage(Messages.getMessage("nowCombatTagged"));
+            boolean isProtected = false;
+
+            for (ProtectedRegion r : WGBukkit.getRegionManager(damager.getWorld()).getApplicableRegions(damager.getLocation())) {
+                if (pvp.regionNoTag(r.getId())) {
+                    isProtected = true;
+                }
             }
 
-            CombatTag.tagPlayer(hit);
-            CombatTag.tagPlayer(damager);
+            if (!isProtected) {
+                if (!CombatTag.isTagged(hit)) {
+                    hit.sendMessage(Messages.getMessage("nowCombatTagged"));
+                }
+                if (!CombatTag.isTagged(damager)) {
+                    damager.sendMessage(Messages.getMessage("nowCombatTagged"));
+                }
+
+                CombatTag.tagPlayer(hit);
+                CombatTag.tagPlayer(damager);
+            }
         }
 
         if (event.getDamager() instanceof Arrow) {

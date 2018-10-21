@@ -27,12 +27,16 @@ import codes.matthewp.desertedpvp.placeholder.PvPPlaceholders;
 import codes.matthewp.desertedpvp.rankup.RankManager;
 import codes.matthewp.desertedpvp.teams.TeamManager;
 import codes.matthewp.desertedpvp.user.UserManager;
+import com.sk89q.worldguard.bukkit.WorldGuardPlugin;
 import net.milkbowl.vault.permission.Permission;
 import org.bukkit.Bukkit;
 import org.bukkit.event.Listener;
+import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
+
+import java.util.List;
 
 /**
  * Main entry point
@@ -51,6 +55,7 @@ public class DesertedPvP extends JavaPlugin {
     private TeamsDataAccess teamsDataAcess;
 
     private Permission perms = null;
+    private List<String> noTagRegion;
 
     @Override
     public void onEnable() {
@@ -150,6 +155,17 @@ public class DesertedPvP extends JavaPlugin {
         return coinsDataAccess;
     }
 
+    private WorldGuardPlugin getWorldGuard() {
+        Plugin plugin = getServer().getPluginManager().getPlugin("WorldGuard");
+
+
+        if (plugin == null || !(plugin instanceof WorldGuardPlugin)) {
+            return null;
+        }
+
+        return (WorldGuardPlugin) plugin;
+    }
+
     public static DesertedPvP getInstace() {
         return instance;
     }
@@ -166,7 +182,19 @@ public class DesertedPvP extends JavaPlugin {
         return rankManager;
     }
 
-    public TeamsDataAccess getTeamsDataAcess() { return teamsDataAcess; }
+    public TeamsDataAccess getTeamsDataAcess() {
+        return teamsDataAcess;
+    }
 
-    public TeamManager getTeamManager() { return teamsManager; }
+    public TeamManager getTeamManager() {
+        return teamsManager;
+    }
+
+    public void setNoTagRegions(List<String> regions) {
+        this.noTagRegion = regions;
+    }
+
+    public boolean regionNoTag(String name) {
+        return noTagRegion.contains(name);
+    }
 }

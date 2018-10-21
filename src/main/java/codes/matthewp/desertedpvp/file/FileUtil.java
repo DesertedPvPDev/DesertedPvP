@@ -113,6 +113,8 @@ public class FileUtil {
             Messages.addMesssage(key, messages.getString(key));
         }
 
+        desertedPvP.setNoTagRegions(config.getStringList("regions"));
+
         SupplyLoot.load(config.getStringList("crateDropItems"));
 
         KitSelector.loadKitSelector(config.getConfigurationSection("kitSelectorItem"));

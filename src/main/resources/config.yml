@@ -15,6 +15,10 @@ kitSelectorGUI:
   name: '&bSelect your kit!'
   slots: 27
 
+# Regions where combat tag will *NOT* work
+regions:
+  - 'spawn'
+
 # Crate drop items
 # Format:
 #   - 'ITEM_NAME:COUNT:DATA:ENCHANTMENT~LEVEL:ENCHANTMENT~LEVEL:ENCHANTMENT~LEVEL.....'
